@@ -1,0 +1,278 @@
+/*body {
+  background: #eecda3;
+  background: -webkit-linear-gradient(to right, #eecda3, #ef629f);
+  background: linear-gradient(to right, #eecda3, #ef629f);
+  min-height: 100vh;
+}*/
+
+div{
+  font-family: 'Ubuntu', sans-serif;
+}
+
+nav {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-family: 'Ubuntu', sans-serif;
+}
+
+p,a,ul,li {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+h4.Logo-neon{
+  font-family: 'Cormorant Garamond', serif;
+  color: #fff;
+  transition: .4s;
+}
+h4.Logo-neon:hover{
+  color: #F37F37;
+  cursor: crosshair;
+}
+/*---------------------------------------*/
+.navbar .navbar-nav .nav-item .nav-link:hover {
+    color: #F37F37;
+  }  
+.navbar .navbar-nav .nav-link {
+  transition: all 0.5s;
+}
+.navbar .navbar-brand {
+  
+  font-size: 18px;
+  /*font-weight: bold;*/
+}
+
+ a#navbarDropdown.nav-item {
+  text-decoration: none;
+  color: #343A40;
+  font-size: 18px;
+ }
+
+
+ .nav-item a::after {
+     content: '';
+     display: block;
+     width: 0px;
+     height: 2px;
+     background: #343A40;
+     transition: 0.4s
+
+ }
+
+ .nav-item a:hover::after {
+     width: 100%
+ }
+
+.items{
+  transition: .4s;
+}
+
+.items:hover{
+    transform: translateY(-8px);
+    
+}
+  
+i.fas.fa-shopping-cart{
+  color: #fff;
+  transition: .4s;
+}
+
+i.fas.fa-shopping-cart:hover{
+  color: #F37F37;
+}
+
+i.fa.fa-user{
+  color: #fff;
+  transition: .4s;
+}
+
+i.fa.fa-user:hover{
+  color: #F37F37;
+}
+
+/* --------------Login-------------- */
+
+#container-login{
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+
+
+/* --------------Register-------------- */
+
+#container-register{
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+
+/* --------------Contact Us-------------- */
+
+#container-contact {
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+
+textarea#contact-textfields{ 
+    background-color:#F5F5F5 !important;
+    color:#75758A;
+}
+input#contact-textfields{ 
+    background-color:#F5F5F5 !important;
+    color:#75758A;
+}
+
+#container-map {
+  margin-bottom: 35px;
+}
+
+/* --------------Owl carousel-------------- */
+ .stretch-card>.card {
+     width: 100%;
+     min-width: 100%
+ }
+
+
+ .flex {
+     -webkit-box-flex: 1;
+     -ms-flex: 1 1 auto;
+     flex: 1 1 auto
+ }
+
+ @media (max-width:991.98px) {
+     .padding {
+         padding: 1.5rem
+     }
+ }
+
+ @media (max-width:767.98px) {
+     .padding {
+         padding: 1rem
+     }
+ }
+
+ .padding {
+     padding: 3rem
+ }
+
+ .owl-carousel .item {
+     margin: 3px
+ }
+
+ .owl-carousel .item img {
+     display: block;
+     width: 100%;
+     height: auto
+ }
+
+ .owl-carousel .item {
+     margin: 3px
+ }
+
+ .owl-carousel {
+     margin-bottom: 15px
+ }
+/* --------------Owl carousel-------------- */
+@media(max-width: 667px){
+  .row.w-100.flex-nowrap{
+    display: 50%;  }
+}
+
+@media(min-width: 375px){
+  .row.w-100.flex-nowrap{
+    display: 25%;
+  }
+}
+/*---------------------------------------*/
+button.btn {
+  color: #F8F9FA;
+  background-color: #343A40;
+}
+
+button.btn-light {
+  transition: 0.5s;
+}
+
+button.btn-light:hover {
+  color: #F8F9FA;
+  background-color: #28A745;
+}
+
+.btn.btn-cart{
+  color: #fff;
+  background-color: #F48037;
+}
+
+.btn.btn-cart{
+  transition: 0.5s;
+}
+
+.btn.btn-cart:hover{
+  color: #fff;
+  background-color: #28A745;
+}
+
+.card-img-top {
+width: 100%;
+height: 25vh;
+object-fit: cover;
+}
+
+#contact-btn{
+  background-color: #F48037;
+  border-radius: none;
+}
+
+#login-btn{
+  background-color: #F48037;
+  border-radius: none;
+}
+
+#reg-cus-btn{
+   background-color: #F48037;
+  border-radius: none;
+}
+
+#reg-trad-btn{
+  background-color: #F48037;
+  border-radius: none;
+}
+
+/* --------footer---------- */
+.footer-copyright{
+  background: #C9C9C9;
+}
+
+a.footitem-fir{
+  color: #fff;
+  transition: .4s;
+}
+a.footitem-fir:hover{
+  color: #F37F37;
+}
+
+a.footitem-sec{
+  color: #fff;
+  transition: .4s;
+}
+a.footitem-sec:hover{
+  color: #F37F37;
+}
+
+i.fab {
+  color: #fff;
+  transition: .4s;
+}
+i.fab:hover{
+  color: #F37F37;
+}
+
+.footitem-thir{
+  color: #000;
+  transition: .4s;
+}
+.footitem-thir:hover{
+  color: #F37F37;
+}
+
+
