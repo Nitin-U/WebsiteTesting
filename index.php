@@ -5,6 +5,7 @@
 
 	<?php
 	include "header.php";
+	include "crud/connection.php";
 	?>
 
 </head>
@@ -57,150 +58,51 @@
 </div>
 
 
+
 <section id="gallery">
   <div class="container">
   		<div class="col-12">
 			<a href="#" style="color: #000;"><p class="text-right">View More <i class="fas fa-arrow-right"></i> </p></a>
 		</div>
-    <div class="row">
-	    <div class="items col-lg-3 col-md-4 col-sm-6 mb-0 mt-4">
-		    <div class="card shadow bg-white rounded">
-		      <img src="img/food1.jpg" alt="" class="card-img-top">
-		      <div class="card-body">
-		        <h5 class="card-title">Item 1</h5>
-		        <p><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: lightgrey;"></i><i class="fas fa-star" style="color: lightgrey;"></i></p>
-		        <p>Price: £ 9.99</p>
-			       <div class="row">
-			       		<div class="col mx-auto">
-			       			<p><a href="#" class="col-12 btn btn-cart btn-md mx-auto">Add to cart</a></p>
-			       		</div>
-			       </div>
-		      </div>
-		    </div>
-	    </div>
+		<div class="row">
+		<?php
 
-	    <div class="items col-lg-3 col-md-4 col-sm-6 mb-0 mt-4">
-		    <div class="card shadow bg-white rounded">
-		      <img src="img/food2.jpg" alt="" class="card-img-top">
-		      <div class="card-body">
-		        <h5 class="card-title">Item 1</h5>
-		        <p><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: lightgrey;"></i><i class="fas fa-star" style="color: lightgrey;"></i></p>
-		        <p>Price: £ 9.99</p>
-			       <div class="row">
-			       		<div class="col mx-auto">
-			       			<p><a href="#" class="col-12 btn btn-cart btn-md mx-auto">Add to cart</a></p>
-			       		</div>
-			       </div>
-		      </div>
-		     </div>
-	    </div>
 
-	    <div class="items col-lg-3 col-md-4 col-sm-6 mb-0 mt-4">
-		    <div class="card shadow bg-white rounded">
-		      <img src="img/food3.jpg" alt="" class="card-img-top">
-		      <div class="card-body">
-		        <h5 class="card-title">Item 1</h5>
-		        <p><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: lightgrey;"></i><i class="fas fa-star" style="color: lightgrey;"></i></p>
-		        <p>Price: £ 9.99</p>
-			       <div class="row">
-			       		<div class="col mx-auto">
-			       			<p><a href="#" class="col-12 btn btn-cart btn-md mx-auto">Add to cart</a></p>
-			       		</div>
-			       </div>
-		      </div>
-		     </div>
-	    </div>
+			// $query="SELECT * FROM( SELECT * FROM PRODUCT_HOME  ORDER BY dbms_random.value) WHERE rownum <=1"; 
+			$query="SELECT * FROM PRODUCT_HOME where PRODUCT_TYPE = 'Recommended'";
+				//$sql = "INSERT INTO PRODUCT_HOME (PRODUCT_ID, PRODUCT_IMAGE, PRODUCT_NAME, PRODUCT_PRICE) VALUES (:deptno, :dname, :loc)"; 
+					$result = oci_parse($conn,$query);
+					oci_execute($result);
+					while($row = oci_fetch_assoc($result)){ ?>
 
-	    <div class="items col-lg-3 col-md-4 col-sm-6 mb-0 mt-4">
-		    <div class="card shadow bg-white rounded">
-		      <img src="img/food4.jpg" alt="" class="card-img-top">
-		      <div class="card-body">
-		        <h5 class="card-title">Item 1</h5>
-		        <p><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: lightgrey;"></i><i class="fas fa-star" style="color: lightgrey;"></i></p>
-		        <p>Price: £ 9.99</p>
-			       <div class="row">
-			       		<div class="col mx-auto">
-			       			<p><a href="#" class="col-12 btn btn-cart btn-md mx-auto">Add to cart</a></p>
-			       		</div>
-			       </div>
-		      </div>
-		     </div>
-	    </div>
+			<div class="items col-lg-3 col-md-4 col-sm-6 mb-0 mt-4">
+				<div class="card shadow bg-white rounded">
+					<img src="img/<?php echo $row['PRODUCT_IMAGE']; ?>" alt="" class="card-img-top">
+					<div class="card-body">
+						<h5 class="card-title"><?php echo $row['PRODUCT_NAME']; ?></h5>
+						<p><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: lightgrey;"></i><i class="fas fa-star" style="color: lightgrey;"></i></p>
+						<p>Price: £ <?php echo $row['PRODUCT_PRICE']; ?></p>
+						<div class="row">
+								<div class="col mx-auto">
+									<p><a href="#" class="col-12 btn btn-cart btn-md mx-auto" type="Submit">Add to cart</a></p>
+								</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<?php }?>	
 
-	    <div class="items col-lg-3 col-md-4 col-sm-6 mb-0 mt-4">
-		    <div class="card shadow bg-white rounded">
-		      <img src="img/food1.jpg" alt="" class="card-img-top">
-		      <div class="card-body">
-		        <h5 class="card-title">Item 1</h5>
-		        <p><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: lightgrey;"></i><i class="fas fa-star" style="color: lightgrey;"></i></p>
-		        <p>Price: £ 9.99</p>
-			       <div class="row">
-			       		<div class="col mx-auto">
-			       			<p><a href="#" class="col-12 btn btn-cart btn-md mx-auto">Add to cart</a></p>
-			       		</div>
-			       </div>
-		      </div>
-		     </div>
-	    </div>
-
-	    <div class="items col-lg-3 col-md-4 col-sm-6 mb-0 mt-4">
-		    <div class="card shadow bg-white rounded">
-		      <img src="img/food2.jpg" alt="" class="card-img-top">
-		      <div class="card-body">
-		        <h5 class="card-title">Item 1</h5>
-		        <p><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: lightgrey;"></i><i class="fas fa-star" style="color: lightgrey;"></i></p>
-		        <p>Price: £ 9.99</p>
-			       <div class="row">
-			       		<div class="col mx-auto">
-			       			<p><a href="#" class="col-12 btn btn-cart btn-md mx-auto">Add to cart</a></p>
-			       		</div>
-			       </div>
-		      </div>
-		     </div>
-	    </div>
-
-	    <div class="items col-lg-3 col-md-4 col-sm-6 mb-0 mt-4">
-		    <div class="card shadow bg-white rounded">
-		      <img src="img/food3.jpg" alt="" class="card-img-top">
-		      <div class="card-body">
-		        <h5 class="card-title">Item 1</h5>
-		        <p><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: lightgrey;"></i><i class="fas fa-star" style="color: lightgrey;"></i></p>
-		        <p>Price: £ 9.99</p>
-			       <div class="row">
-			       		<div class="col mx-auto">
-			       			<p><a href="#" class="col-12 btn btn-cart btn-md mx-auto">Add to cart</a></p>
-			       		</div>
-			       </div>
-		      </div>
-		     </div>
-	    </div>
-
-	    <div class="items col-lg-3 col-md-4 col-sm-6 mb-4 mt-4">
-		    <div class="card shadow bg-white rounded">
-		      <img src="img/food4.jpg" alt="" class="card-img-top">
-		      <div class="card-body">
-		        <h5 class="card-title">Item 1</h5>
-		        <p><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: lightgrey;"></i><i class="fas fa-star" style="color: lightgrey;"></i></p>
-		        <p>Price: £ 9.99</p>
-			       <div class="row">
-			       		<div class="col mx-auto">
-			       			<p><a href="#" class="col-12 btn btn-cart btn-md mx-auto">Add to cart</a></p>
-			       		</div>
-			       </div>
-		      </div>
-		     </div>
-	    </div>
-
-	</div>
+		</div>		
    </div>
-</section>    
+</section>  
+  
 <!---------------------------------------------------------------------------------------->
 <div class="jss col-12 text-center p-4">
 		<h1>Shop by Traders</h1>
 		<hr class="col-1">
 </div>
 
-<div class="container-fluid">
+<div class="container">
   <div class="col-12">
   	<div class="row">
 
@@ -253,138 +155,37 @@
   		<div class="col-12">
 			<a href="#" style="color: #000;"><p class="text-right">View More <i class="fas fa-arrow-right"></i> </p></a>
 		</div>
-    <div class="row">
-	    <div class="items col-lg-3 col-md-4 col-sm-6 mb-0 mt-4">
-		    <div class="card shadow bg-white rounded">
-		      <img src="img/food1.jpg" alt="" class="card-img-top">
-		      <div class="card-body">
-		        <h5 class="card-title">Item 1</h5>
-		        <p><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: lightgrey;"></i><i class="fas fa-star" style="color: lightgrey;"></i></p>
-		        <p>Price: £ 9.99</p>
-			       <div class="row">
-			       		<div class="col mx-auto">
-			       			<p><a href="#" class="col-12 btn btn-cart btn-md mx-auto">Add to cart</a></p>
-			       		</div>
-			       </div>
-		      </div>
-		    </div>
-	    </div>
+		<div class="row mb-4">
+		<?php
 
-	    <div class="items col-lg-3 col-md-4 col-sm-6 mb-0 mt-4">
-		    <div class="card shadow bg-white rounded">
-		      <img src="img/food2.jpg" alt="" class="card-img-top">
-		      <div class="card-body">
-		        <h5 class="card-title">Item 1</h5>
-		        <p><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: lightgrey;"></i><i class="fas fa-star" style="color: lightgrey;"></i></p>
-		        <p>Price: £ 9.99</p>
-			       <div class="row">
-			       		<div class="col mx-auto">
-			       			<p><a href="#" class="col-12 btn btn-cart btn-md mx-auto">Add to cart</a></p>
-			       		</div>
-			       </div>
-		      </div>
-		     </div>
-	    </div>
 
-	    <div class="items col-lg-3 col-md-4 col-sm-6 mb-0 mt-4">
-		    <div class="card shadow bg-white rounded">
-		      <img src="img/food3.jpg" alt="" class="card-img-top">
-		      <div class="card-body">
-		        <h5 class="card-title">Item 1</h5>
-		        <p><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: lightgrey;"></i><i class="fas fa-star" style="color: lightgrey;"></i></p>
-		        <p>Price: £ 9.99</p>
-			       <div class="row">
-			       		<div class="col mx-auto">
-			       			<p><a href="#" class="col-12 btn btn-cart btn-md mx-auto">Add to cart</a></p>
-			       		</div>
-			       </div>
-		      </div>
-		     </div>
-	    </div>
+			// $query="SELECT * FROM( SELECT * FROM PRODUCT_HOME  ORDER BY dbms_random.value) WHERE rownum <=1"; 
+			$query="SELECT * FROM PRODUCT_HOME where PRODUCT_TYPE = 'Hot'";
+				//$sql = "INSERT INTO PRODUCT_HOME (PRODUCT_ID, PRODUCT_IMAGE, PRODUCT_NAME, PRODUCT_PRICE) VALUES (:deptno, :dname, :loc)"; 
+					$result = oci_parse($conn,$query);
+					oci_execute($result);
+					while($row = oci_fetch_assoc($result)){ ?>
 
-	    <div class="items col-lg-3 col-md-4 col-sm-6 mb-0 mt-4">
-		    <div class="card shadow bg-white rounded">
-		      <img src="img/food4.jpg" alt="" class="card-img-top">
-		      <div class="card-body">
-		        <h5 class="card-title">Item 1</h5>
-		        <p><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: lightgrey;"></i><i class="fas fa-star" style="color: lightgrey;"></i></p>
-		        <p>Price: £ 9.99</p>
-			       <div class="row">
-			       		<div class="col mx-auto">
-			       			<p><a href="#" class="col-12 btn btn-cart btn-md mx-auto">Add to cart</a></p>
-			       		</div>
-			       </div>
-		      </div>
-		     </div>
-	    </div>
+			<div class="items col-lg-3 col-md-4 col-sm-6 mb-0 mt-4">
+				<div class="card shadow bg-white rounded">
+					<img src="img/<?php echo $row['PRODUCT_IMAGE']; ?>" alt="" class="card-img-top">
+					<div class="card-body">
+						<h5 class="card-title"><?php echo $row['PRODUCT_NAME']; ?></h5>
+						<p><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: lightgrey;"></i><i class="fas fa-star" style="color: lightgrey;"></i></p>
+						<p>Price: £ <?php echo $row['PRODUCT_PRICE']; ?></p>
+						<div class="row">
+								<div class="col mx-auto">
+									<p><a href="#" class="col-12 btn btn-cart btn-md mx-auto" type="Submit">Add to cart</a></p>
+								</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<?php }?>	
 
-	    <div class="items col-lg-3 col-md-4 col-sm-6 mb-0 mt-4">
-		    <div class="card shadow bg-white rounded">
-		      <img src="img/food1.jpg" alt="" class="card-img-top">
-		      <div class="card-body">
-		        <h5 class="card-title">Item 1</h5>
-		        <p><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: lightgrey;"></i><i class="fas fa-star" style="color: lightgrey;"></i></p>
-		        <p>Price: £ 9.99</p>
-			       <div class="row">
-			       		<div class="col mx-auto">
-			       			<p><a href="#" class="col-12 btn btn-cart btn-md mx-auto">Add to cart</a></p>
-			       		</div>
-			       </div>
-		      </div>
-		     </div>
-	    </div>
-
-	    <div class="items col-lg-3 col-md-4 col-sm-6 mb-0 mt-4">
-		    <div class="card shadow bg-white rounded">
-		      <img src="img/food2.jpg" alt="" class="card-img-top">
-		      <div class="card-body">
-		        <h5 class="card-title">Item 1</h5>
-		        <p><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: lightgrey;"></i><i class="fas fa-star" style="color: lightgrey;"></i></p>
-		        <p>Price: £ 9.99</p>
-			       <div class="row">
-			       		<div class="col mx-auto">
-			       			<p><a href="#" class="col-12 btn btn-cart btn-md mx-auto">Add to cart</a></p>
-			       		</div>
-			       </div>
-		      </div>
-		     </div>
-	    </div>
-
-	    <div class="items col-lg-3 col-md-4 col-sm-6 mb-0 mt-4">
-		    <div class="card shadow bg-white rounded">
-		      <img src="img/food3.jpg" alt="" class="card-img-top">
-		      <div class="card-body">
-		        <h5 class="card-title">Item 1</h5>
-		        <p><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: lightgrey;"></i><i class="fas fa-star" style="color: lightgrey;"></i></p>
-		        <p>Price: £ 9.99</p>
-			       <div class="row">
-			       		<div class="col mx-auto">
-			       			<p><a href="#" class="col-12 btn btn-cart btn-md mx-auto">Add to cart</a></p>
-			       		</div>
-			       </div>
-		      </div>
-		     </div>
-	    </div>
-
-	    <div class="items col-lg-3 col-md-4 col-sm-6 mb-4 mt-4">
-		    <div class="card shadow bg-white rounded">
-		      <img src="img/food4.jpg" alt="" class="card-img-top">
-		      <div class="card-body">
-		        <h5 class="card-title">Item 1</h5>
-		        <p><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: lightgrey;"></i><i class="fas fa-star" style="color: lightgrey;"></i></p>
-		        <p>Price: £ 9.99</p>
-			       <div class="row">
-			       		<div class="col mx-auto">
-			       			<p><a href="#" class="col-12 btn btn-cart btn-md mx-auto">Add to cart</a></p>
-			       		</div>
-			       </div>
-		      </div>
-		     </div>
-	    </div>
-
-	</div>
+		</div>		
    </div>
-</section>
+</section>  
 
 <?php
 	include "footer.php";
