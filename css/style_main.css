@@ -1,0 +1,427 @@
+/*body {
+  background: #eecda3;
+  background: -webkit-linear-gradient(to right, #eecda3, #ef629f);
+  background: linear-gradient(to right, #eecda3, #ef629f);
+  min-height: 100vh;
+}*/
+
+/*body{
+  background: linear-gradient(to right, #FFFFFF, #F8F8F8, #E0E0E0);
+}*/
+
+div{
+  font-family: 'Ubuntu', sans-serif;
+}
+
+nav {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+h1{
+  font-size:40px!important;
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-family: 'Ubuntu', sans-serif;
+}
+
+p,a,ul,li {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+h4.Logo-neon{
+  font-family: 'Cormorant Garamond', serif;
+  color: #fff;
+  transition: .4s;
+}
+h4.Logo-neon:hover{
+  color: #F37F37;
+  cursor: crosshair;
+}
+p.view-container.text-right{
+  font-size: 16px;
+}
+/*---------------------------------------*/
+nav.navbar.navbar-expand-lg{
+  background-color: #1F2130;
+}
+.navbar .navbar-nav .nav-item .nav-link:hover {
+    color: #F37F37;
+  }  
+.navbar .navbar-nav .nav-link {
+  transition: all 0.5s;
+}
+.navbar .navbar-brand {
+  
+  font-size: 18px;
+  /*font-weight: bold;*/
+}
+
+ a#navbarDropdown.nav-item {
+  text-decoration: none;
+  color: #343A40;
+  font-size: 18px;
+  transition: 0.4s;
+ }
+
+a#navbarDropdown.nav-item:hover {
+  color: #F37F37;
+ }
+
+ .nav-item a::after {
+     content: '';
+     display: block;
+     width: 0px;
+     height: 2.5px;
+     background: #343A40;
+     transition: 0.4s;
+
+ }
+
+ .nav-item a:hover::after {
+     width: 100%
+ }
+
+.items{
+  transition: .4s;
+}
+
+.items:hover{
+    transform: translateY(-8px);
+    
+}
+  
+i.fas.fa-shopping-cart{
+  color: #fff;
+  transition: .4s;
+}
+
+i.fas.fa-shopping-cart:hover{
+  color: #F37F37;
+}
+
+i.fa.fa-user{
+  color: #fff;
+  transition: .4s;
+}
+
+i.fa.fa-user:hover{
+  color: #F37F37;
+}
+
+
+#headings-padding{
+  margin-top: 60px;
+}
+
+/* --------------Recommended-------------- */
+h5.card-title.cardprodname{
+  font-size: 20px;
+}
+
+p.cardprice {
+  font-size: 20px
+}
+
+img.ratimg{
+  width: 50%;
+  height: 50%;
+  }
+
+/* --------------Shop by Traders-------------- */
+
+
+
+
+/* --------------Login-------------- */
+
+#container-login{
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+
+
+/* --------------Register-------------- */
+
+#container-register{
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+
+/* --------------Contact Us-------------- */
+
+#container-contact {
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+
+textarea.form-control.for-contact{ 
+    background-color:#F5F5F5 !important;
+    color:#75758A;
+}
+input.form-control.for-contact{ 
+    background-color:#F5F5F5 !important;
+    color:#75758A;
+}
+
+#container-map {
+  margin-bottom: 35px;
+}
+
+/* --------------Contact Us-------------- */
+
+
+button.btn {
+  color: #F8F9FA;
+  background-color: #1F2130;
+}
+
+button.btn-light {
+  transition: 0.5s;
+}
+
+button.btn-light:hover {
+  color: #F8F9FA;
+  background-color: #7CC355;
+}
+
+.btn.btn-cart{
+  color: #fff;
+  background-color: #F48037;
+}
+
+.btn.btn-cart{
+  transition: 0.5s;
+}
+
+.btn.btn-cart:hover{
+  color: #fff;
+  background-color: #7CC355;
+}
+
+.card-img-top {
+width: 100%;
+height: 25vh;
+object-fit: cover;
+}
+
+/*about-us image*/
+.our-team img.card-img-top {
+width: 100%;
+height: 28vh;
+object-fit: cover;
+}
+
+#contact-btn{
+  background-color: #F48037;
+  border-radius: none;
+  transition: 0.4s;
+}
+#contact-btn:hover{
+  background-color: #7CC355;
+  color: #fff;
+}
+
+#login-btn{
+  background-color: #F48037;
+  border-radius: none;
+  transition: 0.4s;
+}
+#login-btn:hover{
+  background-color: #7CC355;
+  color: #fff;
+}
+
+#reg-cus-btn{
+   background-color: #F48037;
+  border-radius: none;
+  transition: 0.4s;
+}
+#reg-cus-btn:hover{
+   background-color: #7CC355;
+  color: #fff;
+}
+
+#reg-trad-btn{
+  background-color: #F48037;
+  border-radius: none;
+  transition: 0.4s;
+}
+#reg-trad-btn:hover{
+  background-color: #7CC355;
+  color: #fff;
+}
+
+/* --------footer---------- */
+footer.page-footer{
+  background-color: #1F2130;
+}
+.footer-copyright{
+  background: #C9C9C9;
+}
+
+a.footitem-fir{
+  color: #fff;
+  transition: .4s;
+}
+a.footitem-fir:hover{
+  color: #F37F37;
+}
+
+a.footitem-sec{
+  color: #fff;
+  transition: .4s;
+}
+a.footitem-sec:hover{
+  color: #F37F37;
+}
+
+i.fab {
+  color: #fff;
+  transition: .4s;
+}
+i.fab:hover{
+  color: #F37F37;
+}
+
+.footitem-thir{
+  color: #000;
+  transition: .4s;
+}
+.footitem-thir:hover{
+  color: #F37F37;
+}
+
+
+i.fab.fa-facebook-f{
+  color: #fff;
+}
+
+i.fab.fa-facebook-f:hover {
+  color: #3b5998;
+}
+
+
+i.fab.fa-twitter{
+  color: #fff;
+}
+
+i.fab.fa-twitter:hover {
+  color: #55acee; 
+}
+
+
+i.fab.fa-fgoogle-plus-g{
+  color: #fff;
+}
+
+i.fab.fa-google-plus-g:hover {
+  color: #dd4b39;
+}
+
+i.fab.fa-linkedin-in{
+  color: #fff;
+}
+
+i.fab.fa-linkedin-in:hover {
+  color: #0e76a8 ;
+}
+
+i.fab.fa-instagram{
+  color: #fff;
+}
+
+i.fab.fa-instagram:hover {
+  color: #ac2bac;
+}
+
+@media screen and (max-width: 768px) {
+    h1{
+        font-size:30px!important;
+    }
+}
+@media screen and (max-width: 450px) {
+    h1{
+        font-size:20px!important;
+    }
+}
+
+
+
+@media screen and (max-width: 768px) {
+    p.view-container.text-right{
+        font-size:10px!important;
+    }
+}
+@media screen and (max-width: 450px) {
+    p.view-container.text-right{
+        font-size:9px!important;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    h5.card-title.cardprodname{
+  font-size: 13px;
+  }
+}
+@media screen and (max-width: 450px) {
+    h5.card-title.cardprodname{
+  font-size: 10px;
+}
+
+}
+
+
+@media screen and (max-width: 768px) {
+    p.cardprice{
+  font-size: 13px;
+  }
+}
+@media screen and (max-width: 450px) {
+    p.cardprice{
+  font-size: 10px;
+}
+
+}
+
+@media screen and (max-width: 768px) {
+    img.ratimg{
+  width: 60%;
+  height: 60%;
+  }
+}
+@media screen and (max-width: 576px) {
+    img.ratimg{
+  width: 30%;
+  height: 30%;
+  }
+}
+@media screen and (max-width: 450px) {
+    img.ratimg{
+  width: 30%;
+  height: 30%;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+    img.footer-image-logo{
+      width: 50% !important;
+      height: 50%!important;
+    }
+}
+@media screen and (max-width: 576px) {
+    img.footer-image-logo{
+      width: 45% !important;
+      height: 45%!important;
+    }
+}
+@media screen and (max-width: 450px) {
+    img.footer-image-logo{
+      width: 40% !important;
+      height: 40%!important;
+    }
+
+}
+

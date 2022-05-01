@@ -8,6 +8,27 @@
 	include "crud/connection.php";
 	?>
 
+	<link rel="stylesheet" type="text/css" href="css/trader_style.css">
+
+	<style>
+		hr.head1 {
+  			border-top: 4px solid #343A40;
+			width: 25%;
+			border-radius: 2px;
+		}
+
+		hr.head2 {
+  			border-top: 4px solid #343A40;
+			width: 12%;
+			border-radius: 2px;
+		}
+		hr.head3 {
+  			border-top: 4px solid #343A40;
+			width: 12%;
+			border-radius: 2px;
+		}
+	</style>
+
 </head>
 <body>
 
@@ -16,7 +37,7 @@
 	<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 	  <div class="carousel-inner">
 	    <div class="carousel-item active">
-	      <img class="d-block w-100" src="img/1.png" alt="First slide">
+	      <img class="d-block w-100 " src="img/1.png" alt="First slide">
 	    </div>
 	    <div class="carousel-item">
 	      <img class="d-block w-100" src="img/2.png" alt="Second slide">
@@ -46,11 +67,11 @@
 
  
 <!------------------------------------------------------------------------------------>
-<div class="container p-4">
+<div class="container" id="headings-padding">
 	<div class="row">
 		<div class="col-12 text-center">
 			<h1>Recommended Product</h1>
-			<hr class="col-3">
+			<hr class="head1">
 		</div>
 
 		
@@ -61,8 +82,12 @@
 
 <section id="gallery">
   <div class="container">
-  		<div class="col-12">
-			<a href="#" style="color: #000;"><p class="text-right">View More <i class="fas fa-arrow-right"></i> </p></a>
+  		<div class="col-12 m-0 p-0">
+			<div class="col-6 ml-auto m-0 p-0">
+					<div class="col-lg-3 col-md-6 ml-auto m-0 p-0">
+						<a href="#" style="color: #000;"><p class="view-container text-right">View More <i class="fas fa-arrow-right"></i> </p></a>
+					</div>	
+			</div>
 		</div>
 		<div class="row">
 		<?php
@@ -75,13 +100,19 @@
 					oci_execute($result);
 					while($row = oci_fetch_assoc($result)){ ?>
 
-			<div class="items col-lg-3 col-md-4 col-sm-6 mb-0 mt-4">
+			<div class="items col-lg-3 col-md-4 col-sm-4 col-xs-4 mb-0 mt-4">
 				<div class="card shadow bg-white rounded">
-					<img src="img/<?php echo $row['PRODUCT_IMAGE']; ?>" alt="" class="card-img-top">
+					<img src="img/food/<?php echo $row['PRODUCT_IMAGE']; ?>" alt="" class="card-img-top">
 					<div class="card-body">
-						<h5 class="card-title"><?php echo $row['PRODUCT_NAME']; ?></h5>
-						<p><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: lightgrey;"></i><i class="fas fa-star" style="color: lightgrey;"></i></p>
-						<p>Price: £ <?php echo $row['PRODUCT_PRICE']; ?></p>
+						<h5 class="card-title cardprodname"><?php echo $row['PRODUCT_NAME']; ?></h5>
+						<p>
+							<!--i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: lightgrey;"></i><i class="fas fa-star" style="color: lightgrey;"></i-->
+								
+								<img src="img/<?php echo $row['PRODUCT_RATING']; ?>" class="ratimg">
+
+								
+						</p>
+						<p class="cardprice">Price: £ <?php echo $row['PRODUCT_PRICE']; ?></p>
 						<div class="row">
 								<div class="col mx-auto">
 									<p><a href="#" class="col-12 btn btn-cart btn-md mx-auto" type="Submit">Add to cart</a></p>
@@ -97,7 +128,7 @@
 </section>  
   
 <!---------------------------------------------------------------------------------------->
-<div class="jss col-12 text-center p-4">
+<!--div class="jss col-12 text-center" id="headings-padding">
 		<h1>Shop by Traders</h1>
 		<hr class="col-1">
 </div>
@@ -106,8 +137,9 @@
   <div class="col-12">
   	<div class="row">
 
+  		
     
-      <div class="col-lg-2 col-md-4 col-sm-6 mx-auto m-4">
+      <div class="col-lg-2 col-md-4 col-sm-6 mx-auto m-4" id="show_bg_2">
         <a href="/news/athletes/katy-whittaker-6701"><img class="d-block mx-auto img-fluid" src="img/Grocery.png"></a>
       </div>
 
@@ -137,13 +169,100 @@
       
     </div>
 
+</div-->
+
+
+<div class="jss col-12 text-center" id="headings-padding">
+		<h1>Shop by Traders</h1>
+		<hr class="head2">
 </div>
+<div class="container">
+    <div class="row pt-4">
+        <div class="col-lg-2 col-md-4 col-sm-6 mx-auto ">
+            <div class="box">
+                <img src="img/Meat.png">
+                <div class="box-content">
+                    <div class="inner-content">
+                        <h3 class="title">Butcher</h3>
+                        <span class="post">Cleckhudderfax</span>
+                        <ul class="icon">
+                            <li><a href="#"><i class="fa-solid fa-circle-info"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-sm-6 mx-auto">
+            <div class="box">
+                <img src="img/delicatessen.png">
+                <div class="box-content">
+                    <div class="inner-content">
+                        <h3 class="title">Delicatessen</h3>
+                        <span class="post">Cleckhudderfax</span>
+                        <ul class="icon">
+                            <li><a href="#"><i class="fa-solid fa-circle-info"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-sm-6 mx-auto">
+            <div class="box">
+                <img src="img/Fish.png">
+                <div class="box-content">
+                    <div class="inner-content">
+                        <h3 class="title">FishMonger</h3>
+                        <span class="post">Cleckhudderfax</span>
+                        <ul class="icon">
+                            <li><a href="#"><i class="fa-solid fa-circle-info"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-sm-6 mx-auto">
+            <div class="box">
+                <img src="img/Grocery.png">
+                <div class="box-content">
+                    <div class="inner-content">
+                        <h3 class="title">GreenGrocer</h3>
+                        <span class="post">Cleckhudderfax</span>
+                        <ul class="icon">
+                            <li><a href="#"><i class="fa-solid fa-circle-info"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-sm-6 mx-auto">
+            <div class="box">
+                <img src="img/bakery.png">
+                <div class="box-content">
+                    <div class="inner-content">
+                        <h3 class="title">Bakery</h3>
+                        <span class="post">Cleckhudderfax</span>
+                        <ul class="icon">
+                            <li><a href="#"><i class="fa-solid fa-circle-info"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+</div>
+
 <!---------------------------------------------------------------------------------------->
-<div class="container p-4">
+<div class="container" id="headings-padding">
 	<div class="row">
 		<div class="col-12 text-center">
 			<h1>Hot Product</h1>
-			<hr class="col-1">
+			<hr class="head3">
 		</div>
 
 		
@@ -152,8 +271,12 @@
 
 <section id="gallery">
   <div class="container">
-  		<div class="col-12">
-			<a href="#" style="color: #000;"><p class="text-right">View More <i class="fas fa-arrow-right"></i> </p></a>
+  		<div class="col-12 m-0 p-0">
+			<div class="col-6 ml-auto m-0 p-0">
+					<div class="col-3 ml-auto m-0 p-0">
+						<a href="#" style="color: #000;"><p class="view-container text-right">View More <i class="fas fa-arrow-right"></i> </p></a>
+					</div>	
+			</div>
 		</div>
 		<div class="row mb-4">
 		<?php
@@ -166,13 +289,18 @@
 					oci_execute($result);
 					while($row = oci_fetch_assoc($result)){ ?>
 
-			<div class="items col-lg-3 col-md-4 col-sm-6 mb-0 mt-4">
+			<div class="items col-lg-3 col-md-4 col-sm-4 col-xs-6 mb-0 mt-4">
 				<div class="card shadow bg-white rounded">
-					<img src="img/<?php echo $row['PRODUCT_IMAGE']; ?>" alt="" class="card-img-top">
+					<img src="img/food/<?php echo $row['PRODUCT_IMAGE']; ?>" alt="" class="card-img-top">
 					<div class="card-body">
-						<h5 class="card-title"><?php echo $row['PRODUCT_NAME']; ?></h5>
-						<p><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: lightgrey;"></i><i class="fas fa-star" style="color: lightgrey;"></i></p>
-						<p>Price: £ <?php echo $row['PRODUCT_PRICE']; ?></p>
+						<h5 class="card-title cardprodname"><?php echo $row['PRODUCT_NAME']; ?></h5>
+						<p>
+							<!--i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: lightgrey;"></i><i class="fas fa-star" style="color: lightgrey;"></i-->
+
+							<img src="img/<?php echo $row['PRODUCT_RATING']; ?>" class="ratimg">
+
+						</p>
+						<p class="cardprice">Price: £ <?php echo $row['PRODUCT_PRICE']; ?></p>
 						<div class="row">
 								<div class="col mx-auto">
 									<p><a href="#" class="col-12 btn btn-cart btn-md mx-auto" type="Submit">Add to cart</a></p>

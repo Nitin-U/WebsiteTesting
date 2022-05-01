@@ -1,7 +1,7 @@
 <!----------------------------------------footer------------------------------------------------>
 
 <!-- Footer -->
-<footer class="page-footer font-small bg-dark text-light pt-4">
+<footer class="page-footer font-small text-light pt-4">
 
   <!-- Footer Links -->
   <div class="container text-center text-md-left">
@@ -13,8 +13,8 @@
       <div class="col-md-3 mt-md-0 mt-3">
 
         <!-- Content -->
-        <p><img src="img/logo.png" style="width: 50%; height: 50%;"></p>
-        <h4 class="Logo-neon">Trinit-E-Mart
+        <p><img src="img/TMART.png" style="width: 70%; height: 60%;" class="footer-image-logo"></p>
+        <h4 class="Logo-neon">
 
       </div>
       <!-- Grid column -->
@@ -84,8 +84,8 @@
             <a href=""><i class="fab fa-facebook-f fa-lg white-text mr-2"> </i></a>
           </a>
 
-          <a class="tw-ic">
-            <a href=""><i class="fab fa-twitter fa-lg white-text mr-2"> </i></a>
+          <a class="ins-ic">
+            <a href=""><i class="fab fa-instagram fa-lg white-text mr-2"> </i></a>
           </a>
 
           <a class="gplus-ic">
@@ -96,9 +96,10 @@
             <a href=""><i class="fab fa-linkedin-in fa-lg white-text mr-2"> </i></a>
           </a>
 
-          <a class="ins-ic">
-            <a href=""><i class="fab fa-instagram fa-lg white-text mr-2"> </i></a>
+          <a class="tw-ic">
+            <a href=""><i class="fab fa-twitter fa-lg white-text mr-2"> </i></a>
           </a>
+
           
         
 
