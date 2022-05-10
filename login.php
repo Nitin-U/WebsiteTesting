@@ -1,27 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-
-	<?php
-	include "header.php";
-	include "crud/connection.php";
-	?>
-
-	<style type="">
-		
-		.error{
-			color: red;
-			font-style: italic;
-		}
-
-
-	</style>
-
-</head>
-<body>
-
 <?php
+	//include "crud/connection.php";
+
+	include_once "header.php";
 	
 	if (isset($_POST['submit'])) 
 	{
@@ -35,46 +15,86 @@
 
 		{
 
-			if ($role == 'customer') 
+				$query = "Select * from user_master where Username = '".$username."' and Role = '".$role."'";
+				
+			//$query = "Select * from Register_Customer where Customer_Username = '".$username."'";
+			//echo $query;
+			//die();
+			$result = oci_parse($conn,$query);
+	 		oci_execute($result);
+
+			if($row = oci_fetch_assoc($result))
 			{
-				$query = "Select * from Register_Customer where Customer_Username = '".$username."' AND CUSTOMER_PASS = '". $password ."'";
-			}
+				if (password_verify($password, $row['PASSWORD'])) 
+				{
+					$_SESSION['username'] = $username;
+					$_SESSION['role'] = $row['ROLE'];
+ 					echo '<script type="text/javascript"> window.location="contact.php";</script>';				
+				}
+				else 
+				{
+					$fail="Authentication failed! Wrong Credentials entered";
+				}
 
-			elseif ($role == 'trader') 
-			{
-				$query = "Select * from Register_Trader where Trader_Username = '".$username."' TRADER_PASSWORD = '" . $password . "'";
-			}
-
-
-		//$query = "Select * from Register_Customer where Customer_Username = '".$username."'";
-		echo $query;
-		//die();
-		$result = oci_parse($conn, $query);
- 		oci_execute($result);
-
-		if($row = oci_fetch_assoc($result))
-		{
-			/*if (password_verify($password, $row['password'])) 
-			{
-				$_SESSION['username'] = $username;
-				$_SESSION['role'] = $row['role'];
-				header('location: contact.php');
+				
 			}
 			else 
-			{
-				$_SESSION['error'] = "**User not recognized";
-			}*/
+				{
+					$fail="Authentication failed! Wrong Credentials entered";
+					
+				}
 
-			echo "successful";
-		}
 		
-	}
+		}
 
 	}
 
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="">
+		
+		.error{
+			color: red;
+			/*color: #9A2A2A;*/
+			font-style: italic;
+		}
+
+		#login_message_error{
+			margin-top: 20px;
+		}
+
+
+	</style>
+
+	<link rel="stylesheet" type="text/css" href="css/alert_fail.css">
+
+</head>
+<body>
+
+
 
 <!------------------------------------------------------------------------------------------->
+<?php
+	if (isset($fail)) 
+		{?>
+			<div class="container" id="login_message_error">
+			    <div class="row">
+			        <div class="col-md-12">  
+			            <div class="alert alert-success-alt alert-dismissable w-75 mx-auto">
+			                <span class="glyphicon glyphicon-certificate"></span>
+			                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+			                    ×</button><?php echo $fail; 	 	
+	}
+?>
+			            </div>
+			        </div>
+			    </div>
+			</div>
+
+
 <div class="container py-4 col-lg-6 col-sm-10" id="container-login">
   <div class="border rounded shadow p-3 bg-white rounded">
   	<form class="px-4 py-3" method="POST" id="" role="form" action="">

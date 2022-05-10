@@ -1,6 +1,6 @@
-<?php
+<!--?php
 	include "crud/connection.php";
-?>
+?-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -157,7 +157,9 @@
 	          PASSWORD_DEFAULT);
 			
 
-			$query = "INSERT INTO Register_Customer(Customer_Name, Customer_Email, Customer_Phone, Customer_Age, Customer_Gender, Customer_Username, Customer_Pass, Customer_Role) VALUES ('$name', '$email', '$phone', '$age', '$gender', '$username', '$password', '$role')";
+			//$query = "INSERT INTO Register_Customer(Customer_Name, Customer_Email, Customer_Phone, Customer_Age, Customer_Gender, Customer_Username, Customer_Pass, Customer_Role) VALUES ('$name', '$email', '$phone', '$age', '$gender', '$username', '$password', '$role')";
+
+			$query = "INSERT INTO user_master(Name, Email, Phone, Age, Gender, Username, Password, Role) VALUES ('$name', '$email', '$phone', '$age', '$gender', '$username', '$password', '$role')";
 
 			//mysqli_query($connect, $query);
 			

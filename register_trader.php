@@ -1,6 +1,6 @@
-<?php
+<!--?php
 	include "crud/connection.php";
-?>
+?-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,7 +36,6 @@
 		$password=$_POST['Trad_Password'];
 		$confirm_password=$_POST['Trad_Confirm_Password'];
 		$type = $_POST['Trad_Type'];
-		$shop=$_POST['Trad_Shop'];
 		$image=$_POST['Trad_Image'];
 		$role = "trader";
 
@@ -150,11 +149,11 @@
 			$error++;
 		}
 
-		if($shop == null) 
+		/*if($shop == null) 
 		{
 			$error_shop=  "Please enter your shop name";
 			$error++;
-		}
+		}*/
 
 		if($image == null) 
 		{
@@ -167,7 +166,9 @@
 			$password = password_hash($password,  
 	          PASSWORD_DEFAULT);
 
-			$query = "INSERT INTO Register_Trader(Trader_Name, Trader_Email, Trader_Phone, Trader_Username, Trader_Password, Trader_Type, Trader_Shop, Trader_Image, Trader_Role) VALUES ('$name', '$email', '$phone', '$username', '$password', '$type', '$shop' , '$image', '$role')";
+			//$query = "INSERT INTO Register_Trader(Trader_Name, Trader_Email, Trader_Phone, Trader_Username, Trader_Password, Trader_Type, Trader_Shop, Trader_Image, Trader_Role) VALUES ('$name', '$email', '$phone', '$username', '$password', '$type', '$shop' , '$image', '$role')";
+
+			$query = "INSERT INTO user_master(Name, Email, Phone, Username, Password, Shop_Type, Shop_Image, Role) VALUES ('$name', '$email', '$phone', '$username', '$password', '$type', '$image', '$role')";
 			
 			if ($result = oci_parse($conn, $query))
 			{
@@ -178,7 +179,6 @@
 				$phone="";
 				$username="";
 				$type="";
-				$shop="";
 				$image="";
 			}
 
@@ -298,7 +298,7 @@
 
 			</div>
 
-			<div class="col-12">
+			<!--div class="col-12">
 			
 				<div class="form-group">
 				      <label for="staticShop">Shop Name*</label>
@@ -307,7 +307,7 @@
 				</div>
 				
 
-			</div>
+			</div-->
 
 			<div class="col-12">
 			

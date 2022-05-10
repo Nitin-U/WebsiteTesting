@@ -1,3 +1,9 @@
+<?php
+
+	include "crud/connection.php";
+	
+	?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,9 +60,9 @@
 					  	<div class="col-6 mx-auto ">
 					  		<div class="row">
 					  			<div class="col-lg-12 col-md-10 col-sm-10">
-					  				<form class="form py-2">
+					  				<form class="form py-2" method="GET" action="product.php">
 									  	<div class="input-group">
-										    <input type="text" class="form-control" placeholder="Search .  .  .">
+										    <input type="text"  name ="search" value="<?php if(isset($_GET['search'])) {echo $_GET['search']; } ?>" class="form-control" placeholder="Search .  .  .">
 										    <div class="input-group-append">
 										      <button class="btn btn-light" type="submit" >
 										        <i class="fa fa-search"></i>
@@ -109,11 +115,29 @@
 				        <a class="nav-link navbar-brand mr-4" href="#">Category <span class="sr-only">(current)</span></a>
 				      </li-->
 				      <li class="nav-item active mx-auto">
-				        <a class="nav-link navbar-brand mr-4" href="#">Shop <span class="sr-only">(current)</span></a>
+				        <a class="nav-link navbar-brand mr-4" href="shop.php">Shop <span class="sr-only">(current)</span></a>
 				      </li>
+
 				      <li class="nav-item active mx-auto">
-				        <a class="nav-link navbar-brand mr-4" href="contact.php">Contact <span class="sr-only">(current)</span></a>
+				        <a class="nav-link navbar-brand mr-4" href="product.php">Product <span class="sr-only">(current)</span></a>
 				      </li>
+
+				      	<?php
+				      	if (isset($_SESSION['username'])) 
+					      {?>
+
+					      <li class="nav-item active mx-auto">
+					        <a class="nav-link navbar-brand mr-4" href="">Account <span class="sr-only">(current)</span></a>
+					      </li>
+
+					      <li class="nav-item active mx-auto">
+					        <a class="nav-link navbar-brand mr-4" href="logout.php">Logout <span class="sr-only">(current)</span></a>
+					      </li>
+
+				  		<?php }
+
+				  		else {?>
+				      
 				      <li class="nav-item active mx-auto">
 				        <a class="nav-link navbar-brand mr-4" href="login.php">Login <span class="sr-only">(current)</span></a>
 				      </li>
@@ -131,6 +155,12 @@
 				        </div>  
 				      </li>
 
+				      <?php }
+      						?>
+
+				      <li class="nav-item active mx-auto">
+				        <a class="nav-link navbar-brand mr-4" href="contact.php">Contact <span class="sr-only">(current)</span></a>
+				      </li>
 
 				    </ul>
 				    

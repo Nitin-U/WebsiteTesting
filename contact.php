@@ -1,10 +1,19 @@
+<!--?php 
+    echo $_SESSION['username'];
+    echo $_SESSION['role'];
+?-->
+
+
 <!DOCTYPE html>
 <html>
 <head>
 	<title></title>
 
 	<?php
-	include "header.php";
+	
+    //include "crud/connection.php";
+    include "header.php";
+    
 	?>
 
     <style type="text/css">
