@@ -5,6 +5,43 @@
 
     <?php
         include "header.php";
+
+        if (isset($_POST['add-to-cart'])) 
+	{
+		$product_name = $_POST['product_name'];
+		$product_price = $_POST['product_price'];
+		$product_image = $_POST['product_image'];
+		$product_quantity = 1;
+
+		$sql = "SELECT * FROM cart WHERE NAME = '$product_name'";
+		$result2 = oci_parse($conn,$sql);
+		oci_execute($result2);
+		$cart=oci_fetch_assoc($result2);
+		if($cart)
+		{  
+			//$message[] = 'product already added to cart';
+			$update= "Update cart SET QUANTITY = QUANTITY + 1 where NAME='$product_name'";
+			//echo $update;
+			//die();
+			$result4 = oci_parse($conn,$update);
+			oci_execute($result4);
+			echo "<script>alert('".$product_name." quantity added by 1');</script>"; 
+
+		}
+		else 
+		{
+			$insert_product = "INSERT INTO CART (Name, Price, Image, Quantity) VALUES ('$product_name', '$product_price', '$product_image', '$product_quantity')";
+			$result3 = oci_parse($conn,$insert_product);
+			oci_execute($result3);
+			//echo $insert_product;
+
+			$message[] = 'product added to cart';
+			echo "<script>alert('product added to cart');</script>"; 
+
+		}
+
+
+	}
     ?>
 
     <style type="text/css">
@@ -307,24 +344,30 @@
 
                                     while($row = oci_fetch_assoc($result)){ ?>
                             <div class="items col-lg-3 col-md-4 col-sm-4 col-xs-6 mb-0 mt-4">
-                                <div class="card">
+                                <form action="" method="POST">
+                                    <div class="card">
                                     <a href="productpage.php?id=<?php echo $row['PRODUCT_ID']?>"><img src="img/food/<?php echo $row['PRODUCT_IMAGE']; ?>" alt="" class="card-img-top"> </a>
-                                    <div class="card-body">
-                                        <h5 class="card-title cardprodname"><?php echo ucwords($row['PRODUCT_NAME']); ?></h5>
-                                        <p>
-                                            <!--i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: lightgrey;"></i><i class="fas fa-star" style="color: lightgrey;"></i-->
+                                        <div class="card-body">
+                                            <h5 class="card-title cardprodname"><?php echo ucwords($row['PRODUCT_NAME']); ?></h5>
+                                            <p>
+                                                <!--i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: lightgrey;"></i><i class="fas fa-star" style="color: lightgrey;"></i-->
 
-                                            <img src="img/<?php echo $row['PRODUCT_RATING']; ?>" class="ratimg">
+                                                <img src="img/<?php echo $row['PRODUCT_RATING']; ?>" class="ratimg">
 
-                                        </p>
-                                        <p class="cardprice">Price: £ <?php echo $row['PRODUCT_PRICE']; ?></p>
-                                        <div class="row">
-                                                <div class="col mx-auto">
-                                                    <p><a href="#" class="col-12 btn btn-cart btn-md mx-auto" type="Submit">Add to cart</a></p>
-                                                </div>
+                                            </p>
+                                            <p class="cardprice">Price: £ <?php echo $row['PRODUCT_PRICE']; ?></p>
+
+                                            <input type="hidden" name="product_image" value=" <?php echo $row['PRODUCT_IMAGE']; ?> ">
+							                <input type="hidden" name="product_name" value=" <?php echo $row['PRODUCT_NAME']; ?> ">
+							                <input type="hidden" name="product_price" value=" <?php echo $row['PRODUCT_PRICE']; ?> ">
+                                            <div class="row">
+                                                    <div class="col mx-auto">
+                                                    <button type="submit" class="col-12 btn btn-cart btn-md mx-auto" name="add-to-cart">Add to cart</button>
+                                                    </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </form>
                             </div>
                             <?php }?>
 

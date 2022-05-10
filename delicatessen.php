@@ -76,7 +76,7 @@
 <div class="container" id="headings-padding">
 	<div class="row">
 		<div class="col-12 text-center">
-			<h1>Butcher Products</h1>
+			<h1>Delicatessen Products</h1>
 			<hr class="head1">
 		</div>
 
@@ -87,13 +87,13 @@
 
 
 <section id="gallery">
-  <div class="container mb-5">
+<div class="container mb-5">
 		<div class="row">
 		<?php
 
 
 			// $query="SELECT * FROM( SELECT * FROM PRODUCT_HOME  ORDER BY dbms_random.value) WHERE rownum <=1"; 
-			$query="SELECT * FROM PRODUCT, SHOP where SHOP_ID = FK1_SHOP_ID AND SHOP_NAME = 'Butcher'";
+			$query="SELECT * FROM PRODUCT, SHOP where SHOP_ID = FK1_SHOP_ID AND SHOP_NAME = 'Delicatessen'";
 				//$sql = "INSERT INTO PRODUCT_HOME (PRODUCT_ID, PRODUCT_IMAGE, PRODUCT_NAME, PRODUCT_PRICE) VALUES (:deptno, :dname, :loc)"; 
 					$result = oci_parse($conn,$query);
 					oci_execute($result);

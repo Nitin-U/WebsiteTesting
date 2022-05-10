@@ -37,7 +37,7 @@
 		                        <h3 class="title">Butcher</h3>
 		                        <span class="post">Cleckhudderfax</span>
 		                        <ul class="icon">
-		                            <li><a href="#"><i class="fa-solid fa-circle-info"></i></a></li>
+		                            <li><a href="butcher.php"><i class="fa-solid fa-circle-info"></i></a></li>
 		                        </ul>
 		                    </div>
 		                </div>
@@ -52,7 +52,7 @@
 		                        <h3 class="title">Delicatessen</h3>
 		                        <span class="post">Cleckhudderfax</span>
 		                        <ul class="icon">
-		                            <li><a href="#"><i class="fa-solid fa-circle-info"></i></a></li>
+		                            <li><a href="delicatessen.php"><i class="fa-solid fa-circle-info"></i></a></li>
 		                        </ul>
 		                    </div>
 		                </div>
@@ -67,7 +67,7 @@
 		                        <h3 class="title">Fishmonger</h3>
 		                        <span class="post">Cleckhudderfax</span>
 		                        <ul class="icon">
-		                            <li><a href="#"><i class="fa-solid fa-circle-info"></i></a></li>
+		                            <li><a href="fishmonger.php"><i class="fa-solid fa-circle-info"></i></a></li>
 		                        </ul>
 		                    </div>
 		                </div>
@@ -82,7 +82,7 @@
 		                        <h3 class="title">Greengrocer</h3>
 		                        <span class="post">Cleckhudderfax</span>
 		                        <ul class="icon">
-		                            <li><a href="#"><i class="fa-solid fa-circle-info"></i></a></li>
+		                            <li><a href="greengrocer.php"><i class="fa-solid fa-circle-info"></i></a></li>
 		                        </ul>
 		                    </div>
 		                </div>
@@ -97,7 +97,7 @@
 		                        <h3 class="title">Bakery</h3>
 		                        <span class="post">Cleckhudderfax</span>
 		                        <ul class="icon">
-		                            <li><a href="#"><i class="fa-solid fa-circle-info"></i></a></li>
+		                            <li><a href="bakery.php"><i class="fa-solid fa-circle-info"></i></a></li>
 		                        </ul>
 		                    </div>
 		                </div>
