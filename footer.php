@@ -1,5 +1,40 @@
 <!----------------------------------------footer------------------------------------------------>
+<link rel="stylesheet" type="text/css" href="css/alert_fail.css">
+<?php
+  if (isset($_SESSION['failmessage'])) 
+    {?>
+      <div class="container-fluid" id="login_message_error">
+          <div class="alertmessage">
+              <div class="col-12">  
+                  <div class="alert alert-fail-alt alert-dismissable">
+                      <span class="glyphicon glyphicon-certificate"></span>
+                      <button type="button" class="close ml-2" data-dismiss="alert" aria-hidden="true">
+                          ×</button><?php echo $_SESSION['failmessage'];     
+  }
+?>
+                  </div>
+              </div>
+          </div>
+      </div>
 
+<?php
+  if (isset($_SESSION['passmessage'])) 
+    {?>
+      <div class="container-fluid" id="login_message_error">
+          <div class="alertmessage">
+              <div class="col-12">  
+                  <div class="alert alert-success-alt alert-dismissable">
+                      <span class="glyphicon glyphicon-certificate"></span>
+                      <button type="button" class="close ml-2" data-dismiss="alert" aria-hidden="true">
+                          ×</button><?php echo $_SESSION['passmessage'];     
+  }
+      
+?>
+                  </div>
+              </div>
+          </div>
+      </div>
+   
 <!-- Footer -->
 <footer class="page-footer font-small text-light pt-4">
 
@@ -120,3 +155,11 @@
 
 </footer>
 <!-- Footer -->
+<?php
+    function clearMsg()
+    {
+      $_SESSION['passmessage']=null;
+      $_SESSION['failmessage']=null;  
+    }  
+      
+?>
