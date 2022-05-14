@@ -1,9 +1,10 @@
-<?php
-
-	include "crud/connection.php";
-	
-	?>
-
+<?php 
+					$quantityTotal = "select sum(quantity) as QUANTITYTOTAL from cart";
+                    $result3 = oci_parse($conn,$quantityTotal);
+                    oci_execute($result3);
+                    $row = oci_fetch_assoc($result3);
+                    $_SESSION['cart_count']=$row['QUANTITYTOTAL'];
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,10 +34,29 @@
     <script src="https://kit.fontawesome.com/4d186df5f3.js" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 	
-	
-
 
 	<title></title>
+	<style type="text/css">
+		.dot {
+    height: 15px;
+    width: 15px;
+    background-color: red;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+.sec{
+    position: relative;
+    right: -13px;
+    top:-22px;
+}
+
+.counter.counter-lg {
+    top: -24px !important;
+}
+
+
+	</style>
 	</head>
 
 	<body>
@@ -79,7 +99,12 @@
 					  		<div class="text-right">
 					  			<div class="row">
 					  				<div class="col-6 text-right">
-					  					<a href="temp.php"><i class="fas fa-shopping-cart mr-4"></i></a>
+					  					<div class="cartIcon">
+					  						<a href="temp.php"><i class="fas fa-shopping-cart mr-4"></i>
+					  						<!--span class="counter counter-lg"><?php if(isset($_SESSION['cart_count']))echo $_SESSION['cart_count']; else echo "0"?></span-->
+					  						</a>
+					  					</div>
+					  					
 					  					
 					  				</div>
 
@@ -115,25 +140,45 @@
 				        <a class="nav-link navbar-brand mr-4" href="#">Category <span class="sr-only">(current)</span></a>
 				      </li-->
 				      <li class="nav-item active mx-auto">
-				        <a class="nav-link navbar-brand mr-4" href="shop.php">Shop <span class="sr-only">(current)</span></a>
+				        <a class="nav-link navbar-brand mr-4" href="shop.php">Trader <span class="sr-only">(current)</span></a>
 				      </li>
 
 				      <li class="nav-item active mx-auto">
 				        <a class="nav-link navbar-brand mr-4" href="product.php">Product <span class="sr-only">(current)</span></a>
 				      </li>
 
+				      <li class="nav-item active mx-auto">
+				        <a class="nav-link navbar-brand mr-4" href="contact.php">Contact <span class="sr-only">(current)</span></a>
+				      </li>
+
 				      	<?php
 				      	if (isset($_SESSION['username'])) 
 					      {?>
+					      	<li class="nav-item dropdown mx-auto my-auto">
+				        <a class="nav-item navbar-brand mr-4" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+				          Account
+				        </a>
+				        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+				        	<?php if ($_SESSION['role']=='customer') { ?>
+				          <a class="dropdown-item nav-link" href="customer_profile_setting.php">Profile</a>
+				          <a class="dropdown-item nav-link" href="#">Wishlist</a>
+				           <?php } ?> 
 
-					      <li class="nav-item active mx-auto">
-					        <a class="nav-link navbar-brand mr-4" href="">Account <span class="sr-only">(current)</span></a>
-					      </li>
+				          <?php if ($_SESSION['role']=='trader' || $_SESSION['role']=='admin') { ?>
+				         
+				          <a class="dropdown-item nav-link" href="addProduct.php">Add Product</a>
+				          <a class="dropdown-item nav-link" href="trader_profile_setting.php">Profile</a>
+				        </div> 
+
+				        <?php } ?> 
+				      </li>
 
 					      <li class="nav-item active mx-auto">
 					        <a class="nav-link navbar-brand mr-4" href="logout.php">Logout <span class="sr-only">(current)</span></a>
 					      </li>
 
+					      	
+							
 				  		<?php }
 
 				  		else {?>
@@ -157,10 +202,6 @@
 
 				      <?php }
       						?>
-
-				      <li class="nav-item active mx-auto">
-				        <a class="nav-link navbar-brand mr-4" href="contact.php">Contact <span class="sr-only">(current)</span></a>
-				      </li>
 
 				    </ul>
 				    
