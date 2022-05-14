@@ -42,6 +42,22 @@ p.view-container.text-right{
   font-size: 16px;
 }
 /*---------------------------------------*/
+
+/* .cartIcon
+{
+  width:50%;
+  float: right;
+  position: relative;
+}
+
+.cartCount
+{
+
+  color: white;
+  position: absolute;
+  top: 0;
+} */
+
 nav.navbar.navbar-expand-lg{
   background-color: #1F2130;
 }
@@ -72,7 +88,7 @@ a#navbarDropdown.nav-item:hover {
      content: '';
      display: block;
      width: 0px;
-     height: 2.5px;
+     height: 3.5px;
      background: #343A40;
      transition: 0.4s;
 
@@ -94,6 +110,7 @@ a#navbarDropdown.nav-item:hover {
 i.fas.fa-shopping-cart{
   color: #fff;
   transition: .4s;
+  margin-right: 2rem;
 }
 
 i.fas.fa-shopping-cart:hover{
