@@ -1,53 +1,6 @@
 <?php
-	//include "crud/connection.php";
-
+	include "crud/connection.php";
 	include_once "header.php";
-	
-	if (isset($_POST['submit'])) 
-	{
-		$username = $_POST['username'];
-		$password = $_POST['password'];
-		$role = $_POST['role'];
-		$error = 0;
-
-
-		if ($error == 0) 
-
-		{
-
-				$query = "Select * from user_master where Username = '".$username."' and Role = '".$role."'";
-				
-			//$query = "Select * from Register_Customer where Customer_Username = '".$username."'";
-			//echo $query;
-			//die();
-			$result = oci_parse($conn,$query);
-	 		oci_execute($result);
-
-			if($row = oci_fetch_assoc($result))
-			{
-				if (password_verify($password, $row['PASSWORD'])) 
-				{
-					$_SESSION['username'] = $username;
-					$_SESSION['role'] = $row['ROLE'];
- 					echo '<script type="text/javascript"> window.location="contact.php";</script>';				
-				}
-				else 
-				{
-					$fail="Authentication failed! Wrong Credentials entered";
-				}
-
-				
-			}
-			else 
-				{
-					$fail="Authentication failed! Wrong Credentials entered";
-					
-				}
-
-		
-		}
-
-	}
 
 ?>
 <!DOCTYPE html>
@@ -69,35 +22,18 @@
 
 	</style>
 
-	<link rel="stylesheet" type="text/css" href="css/alert_fail.css">
+	
 
 </head>
 <body>
 
 
-
 <!------------------------------------------------------------------------------------------->
-<?php
-	if (isset($fail)) 
-		{?>
-			<div class="container" id="login_message_error">
-			    <div class="row">
-			        <div class="col-md-12">  
-			            <div class="alert alert-success-alt alert-dismissable w-75 mx-auto">
-			                <span class="glyphicon glyphicon-certificate"></span>
-			                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
-			                    ×</button><?php echo $fail; 	 	
-	}
-?>
-			            </div>
-			        </div>
-			    </div>
-			</div>
 
 
 <div class="container py-4 col-lg-6 col-sm-10" id="container-login">
   <div class="border rounded shadow p-3 bg-white rounded">
-  	<form class="px-4 py-3" method="POST" id="" role="form" action="">
+  	<form class="px-4 py-3" method="POST" id="" role="form" action="loginprocess.php">
   		<div class="col-12 text-left pb-4">
 			<h1>Sign-In</h1>
 		</div>
@@ -117,8 +53,27 @@
 			<div class="col-12">
 			
 				<div class="form-group row">
+					 <div class="input-group">
 				      <label for="inputPassword" class="col-lg-3 col-md-2 col-sm-12">Password</label>
-				      <div class="col-lg-9 col-md-10 col-sm-12"><input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password" required=""></div>
+				      <div class="col-lg-9 col-md-10 col-sm-12">
+				      	<!--div class="row">
+				      		<div class="col-10 mr-0 pr-0 w-100">
+				      		<input type="password" name="password" class="form-control" id="password" placeholder="Password" required=""/>
+				      	</div>
+
+				      	<div class="input-group-append col-1 m-0 p-0">
+				      	<span class="input-group-text"><i class="fa-solid fa-eye-slash" id="togglePassword" style="cursor: pointer;"></i></span>
+				      </div>
+				      	</div-->
+				      	<div class="input-group">
+						  <input type="password" name="password" class="form-control" id="password" placeholder="Password" required="">
+						  <div class="input-group-append">
+						    <span class="input-group-text" id="basic-addon2"><i class="fa-solid fa-eye-slash" id="togglePassword" style="cursor: pointer;"></i></span>
+						  </div>
+						</div>
+				      </div>
+				      
+				      </div>
 				</div>
 
 			</div>
@@ -159,7 +114,8 @@
 
 	<div class="row">
 	  	<div class="col-12">
-	  		<p class="text-center">Don't have an account yet?<a href=""> Register here </a></p>
+	  		<p class="text-center">Don't have an account yet?<a href="register_customer.php"> Register here </a></p>
+	  		<p class="text-center">Want to add your shop?<a href="register_trader.php"> Register here </a></p>
 	  	</div>
 	</div>
 
@@ -173,7 +129,9 @@
 
 <?php
 	include "footer.php";
+	clearMsg();
 ?>
 
+<script type="text/javascript" src="js/pass_view.js"></script>
 </body>
 </html>
