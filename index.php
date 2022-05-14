@@ -160,9 +160,9 @@
 							<input type="hidden" name="product_price" value=" <?php echo $row['PRODUCT_PRICE']; ?> ">
 
 							<div class="row">
-									<div class="col mx-auto">
-										<button type="submit" class="col-12 btn btn-cart btn-md mx-auto" name="add-to-cart">Add to cart</button>
-									</div>
+								<div class="col mx-auto">
+									<button type="submit" class="col-12 btn btn-cart btn-md mx-auto" name="add-to-cart">Add to cart</button>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -337,24 +337,30 @@
 					while($row = oci_fetch_assoc($result)){ ?>
 
 			<div class="items col-lg-3 col-md-4 col-sm-4 col-xs-6 mb-0 mt-4">
-				<div class="card shadow bg-white rounded">
-					<img src="img/food/<?php echo $row['PRODUCT_IMAGE']; ?>" alt="" class="card-img-top">
-					<div class="card-body">
-						<h5 class="card-title cardprodname"><?php echo $row['PRODUCT_NAME']; ?></h5>
-						<p>
-							<!--i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: lightgrey;"></i><i class="fas fa-star" style="color: lightgrey;"></i-->
+				<form action="" method="POST">
+					<div class="card shadow bg-white rounded">
+					<a href="productpage.php?id=<?php echo $row['PRODUCT_ID']?>"><img src="img/food/<?php echo $row['PRODUCT_IMAGE']; ?>" alt="" class="card-img-top"> </a>
+						<div class="card-body">
+							<h5 class="card-title cardprodname"><?php echo $row['PRODUCT_NAME']; ?></h5>
+							<p>
+								<!--i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: lightgrey;"></i><i class="fas fa-star" style="color: lightgrey;"></i-->
 
-							<img src="img/<?php echo $row['PRODUCT_RATING']; ?>" class="ratimg">
+								<img src="img/<?php echo $row['PRODUCT_RATING']; ?>" class="ratimg">
 
-						</p>
-						<p class="cardprice">Price: £ <?php echo $row['PRODUCT_PRICE']; ?></p>
-						<div class="row">
+							</p>
+							<p class="cardprice">Price: £ <?php echo $row['PRODUCT_PRICE']; ?></p>
+
+							<input type="hidden" name="product_image" value=" <?php echo $row['PRODUCT_IMAGE']; ?> ">
+							<input type="hidden" name="product_name" value=" <?php echo $row['PRODUCT_NAME']; ?> ">
+							<input type="hidden" name="product_price" value=" <?php echo $row['PRODUCT_PRICE']; ?> ">
+							<div class="row">
 								<div class="col mx-auto">
-									<p><a href="#" class="col-12 btn btn-cart btn-md mx-auto" type="Submit" name="add-to-cart">Add to cart</a></p>
+									<button type="submit" class="col-12 btn btn-cart btn-md mx-auto" name="add-to-cart">Add to cart</button>
 								</div>
+							</div>
 						</div>
 					</div>
-				</div>
+				</form>
 			</div>
 			<?php }?>	
 
