@@ -11,7 +11,7 @@
 	//run $query
     $result = oci_parse($conn,$query);
     oci_execute($result);
-
+     $_SESSION['passmessage']="Product deleted successfully";
 	//Redirect to displayProduct.php page
 	header('Location: displayProduct.php');
 ?>

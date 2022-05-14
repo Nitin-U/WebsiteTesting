@@ -1,5 +1,9 @@
 <?php
 	include "crud/connection.php";
+    if($_SESSION['role']!='trader')
+      {
+        header("location: index.php");
+      }
 ?>
 <!DOCTYPE html>
 <html>
@@ -73,6 +77,7 @@
 
 <?php
 	include "footer.php";
+    clearMsg();
 ?>
 
 

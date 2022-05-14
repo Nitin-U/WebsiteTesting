@@ -1,15 +1,15 @@
 <?php
   
   include "crud/connection.php";
+  if($_SESSION['role']!='trader')
+  {
+    header("location: index.php");
+  }
 
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     
 	<title></title>
 
@@ -41,7 +41,10 @@
       background-color: #7CC355;
       color: #fff;
     }
-
+    .error{
+      color: red;
+      font-style: italic;
+    }
     
 
   </style>
@@ -63,10 +66,70 @@
     $type = $_POST['type'];
     $address = $_POST['address'];
     $phone = $_POST['phone'];
+    $error = 0;
 
-    $shop_insert_query = "INSERT INTO SHOP (SHOP_NAME, SHOP, SHOP_ADDRESS, SHOP_PHONE, FK1_USER_ID) VALUES ('$shop', '$type', '$address', '$phone', '". $_SESSION['id'] ."')";
-    $shop_insert_result = oci_parse($conn, $shop_insert_query);
-    oci_execute($shop_insert_result);
+    if (strlen($shop < 4)) 
+    {
+      $error_shop = "Shop name must be greater than 4 characters";
+      $error++;
+    }
+    if ($shop == null) 
+    {
+      $error_shop = "Please enter shop name";
+      $error++;
+    }
+
+    if (strlen($type < 4)) 
+    {
+      $error_type = "Name must be greater than 4 characters";
+      $error++;
+    }
+    if ($type == null) 
+    {
+      $error_type = "Please enter shop type";
+      $error++;
+    }
+
+    if (strlen($address < 4)) 
+    {
+      $error_address = "Address must exceed 4 characters";
+      $error++;
+    }
+
+    if ($address == null) 
+    {
+      $error_address = "Please enter the address";
+      $error++;
+    }
+
+    if(!preg_match('/^[0-9]{10}+$/', $phone)) 
+    {
+      $error_phone=  "Please enter valid mobile number";
+      $error++; 
+    } 
+
+    if ($phone == null) 
+    {
+      $error_phone =  "Please enter phone number";
+      $error++;
+    }
+
+    if ($error == 0) 
+    {
+        $shop_insert_query = "INSERT INTO SHOP (SHOP_NAME, SHOP, SHOP_ADDRESS, SHOP_PHONE, FK1_USER_ID) VALUES ('$shop', '$type', '$address', '$phone', '". $_SESSION['id'] ."')";
+
+        if($shop_insert_result = oci_parse($conn, $shop_insert_query));
+        {
+          oci_execute($shop_insert_result);
+          $shop = "";
+          $type = "";
+          $address = "";
+          $phone = "";
+          $_SESSION['passmessage'] = "Shop added successfully";
+        }
+        
+    }
+
 
     }
 
@@ -76,16 +139,20 @@
     <form action="#" method="POST">
       <br>
         <label for="Name">Shop Name <span>*</span></label><br>
-        <input type="text" id="name" name="name"><br>
+        <input type="text" id="name" name="name" value="<?php if(isset($shop)) echo $shop ?>"><br>
+        <div class="mb-3"><?php if (isset($error_shop)) echo '<div class="error">'.$error_shop.'</div>';?> </div>
 
         <label for="Name">Shop Type <span>*</span></label><br>
-        <input type="text" id="type" name="type"><br>
+        <input type="text" id="type" name="type" value="<?php if(isset($type)) echo $type ?>"><br>
+        <div class="mb-3"><?php if (isset($error_type)) echo '<div class="error">'.$error_type.'</div>';?> </div>
 
         <label for="Address">Address <span>*</span></label>
-        <input type="text" id="address" name="address"><br>
+        <input type="text" id="address" name="address" value="<?php if(isset($address)) echo $address ?>"><br>
+        <div class="mb-3"><?php if (isset($error_address)) echo '<div class="error">'.$error_address.'</div>';?> </div>
 
         <label for="Phone">Phone <span>*</span></label>
-        <input type="text" id="phone" name="phone"><br>
+        <input type="text" id="phone" name="phone" value="<?php if(isset($phone)) echo $phone ?>"><br>
+        <div class="mb-3"><?php if (isset($error_phone)) echo '<div class="error">'.$error_phone.'</div>';?> </div>
 
         <div class="col-md-12"> 
    			  <div class="card-text text-center">
@@ -117,6 +184,7 @@
 
   <?php
 	  include "footer.php";
+    clearMsg();
   ?>
 
 </body>
