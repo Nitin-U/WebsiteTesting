@@ -1,3 +1,7 @@
+<?php
+	include "crud/connection.php";
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,80 +33,33 @@
 		<div class="col-12 my-5">
 			<div class="row">
 
+				<?php 
+
+					$query="SELECT * FROM user_master WHERE ROLE = 'trader'";
+					$result = oci_parse($conn,$query);
+					oci_execute($result);
+					while($row = oci_fetch_assoc($result))
+
+					{ 
+				?>
+
+
 				<div class="col-lg-6 col-md-4 col-sm-3 mx-auto py-3">
 		            <div class="box">
-		                <img src="img/Meat.png">
+		                <img src="img/<?php echo $row['SHOP_IMAGE'] ?>">
 		                <div class="box-content">
 		                    <div class="inner-content">
-		                        <h3 class="title">Butcher</h3>
+		                        <h3 class="title"><?php echo $row['NAME']; ?></h3>
 		                        <span class="post">Cleckhudderfax</span>
 		                        <ul class="icon">
-		                            <li><a href="butcher.php"><i class="fa-solid fa-circle-info"></i></a></li>
+		                            <li><a href="product.php?catg=<?php echo $row['USER_ID']?>"><i class="fa-solid fa-circle-info"></i></a></li>
 		                        </ul>
 		                    </div>
 		                </div>
 		            </div>
         		</div>
 
-        		<div class="col-lg-6 col-md-4 col-sm-3 mx-auto py-3">
-		            <div class="box">
-		                <img src="img/delicatessen.png">
-		                <div class="box-content">
-		                    <div class="inner-content">
-		                        <h3 class="title">Delicatessen</h3>
-		                        <span class="post">Cleckhudderfax</span>
-		                        <ul class="icon">
-		                            <li><a href="delicatessen.php"><i class="fa-solid fa-circle-info"></i></a></li>
-		                        </ul>
-		                    </div>
-		                </div>
-		            </div>
-        		</div>
-
-        		<div class="col-lg-6 col-md-4 col-sm-3 mx-auto py-3">
-		            <div class="box">
-		                <img src="img/Fish.png">
-		                <div class="box-content">
-		                    <div class="inner-content">
-		                        <h3 class="title">Fishmonger</h3>
-		                        <span class="post">Cleckhudderfax</span>
-		                        <ul class="icon">
-		                            <li><a href="fishmonger.php"><i class="fa-solid fa-circle-info"></i></a></li>
-		                        </ul>
-		                    </div>
-		                </div>
-		            </div>
-        		</div>
-
-        		<div class="col-lg-6 col-md-4 col-sm-3 mx-auto py-3">
-		            <div class="box">
-		                <img src="img/Grocery.png">
-		                <div class="box-content">
-		                    <div class="inner-content">
-		                        <h3 class="title">Greengrocer</h3>
-		                        <span class="post">Cleckhudderfax</span>
-		                        <ul class="icon">
-		                            <li><a href="greengrocer.php"><i class="fa-solid fa-circle-info"></i></a></li>
-		                        </ul>
-		                    </div>
-		                </div>
-		            </div>
-        		</div>
-
-        		<div class="col-lg-6 col-md-4 col-sm-3 mx-auto py-3">
-		            <div class="box">
-		                <img src="img/bakery.png">
-		                <div class="box-content">
-		                    <div class="inner-content">
-		                        <h3 class="title">Bakery</h3>
-		                        <span class="post">Cleckhudderfax</span>
-		                        <ul class="icon">
-		                            <li><a href="bakery.php"><i class="fa-solid fa-circle-info"></i></a></li>
-		                        </ul>
-		                    </div>
-		                </div>
-		            </div>
-        		</div>
+        		<?php }?>
 
 			</div>
 		</div>

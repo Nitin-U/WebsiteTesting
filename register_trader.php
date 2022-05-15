@@ -1,6 +1,6 @@
-<!--?php
+<?php
 	include "crud/connection.php";
-?-->
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,7 +35,7 @@
 		$username=$_POST['Trad_Username'];
 		$password=$_POST['Trad_Password'];
 		$confirm_password=$_POST['Trad_Confirm_Password'];
-		$type = $_POST['Trad_Type'];
+		$type = $_POST['Shop_type'];
 		$image=$_POST['Trad_Image'];
 		$role = "trader";
 
@@ -173,13 +173,13 @@
 			if ($result = oci_parse($conn, $query))
 			{
 				oci_execute($result);
-				$success="Trader Account Registered Successfully! <a href='login.php' style=' text-decoration:none; color:#000; '>Click here to login</a>";
 				$name="";
 				$email="";
 				$phone="";
 				$username="";
 				$type="";
 				$image="";
+				$_SESSION['passmessage'] = "Account Registration Successful, click to <a href='login.php'>verify</a>";
 			}
 
 
@@ -193,22 +193,6 @@
 
 ?>
 
-<?php
-	if (isset($success)) 
-		{?>
-			<div class="container" id="customer_message">
-			    <div class="row">
-			        <div class="col-md-12">  
-			            <div class="alert alert-success-alt alert-dismissable w-75 mx-auto">
-			                <span class="glyphicon glyphicon-certificate"></span>
-			                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
-			                    ×</button><?php echo $success; 	 	
-	}
-?>
-			            </div>
-			        </div>
-			    </div>
-			</div>
 
 <div class="container col-lg-6 pt-2 pb-4 col-md-8 col-sm-10" id="container-register">
   <div class="border rounded shadow p-3 bg-white rounded">
@@ -282,18 +266,9 @@
 			<div class="col-12">
 			
 				<div class="form-group">
-				      <label for="staticAge">Trader Type*</label>
-				      <select id="form_need" class="form-control" name="Trad_Type"  data-error="Please specify your need." >
-
-				      		<option value="">--Select Your Category--</option>
-				      		<option <?php if( isset($type) && $type == "Greengrocer") echo "selected"?>>Greengrocer</option>
-				      		<option <?php if( isset($type) && $type == "Fishmonger") echo "selected"?>>Fishmonger</option>
-				      		<option <?php if( isset($type) && $type == "Butcher") echo "selected"?>>Butcher</option>
-				      		<option <?php if( isset($type) && $type == "Bakery") echo "selected"?>>Bakery</option>
-				      		<option <?php if( isset($type) && $type == "Delicatessen") echo "selected"?>>Delicatessen</option>
-
-				      	</select>
-				      	<?php if (isset($error_type)) echo '<div class="error">'.$error_type.'</div>';?>
+				      <label for="staticUsername">Shop Type*</label>
+				      <input type="username" class="form-control" name="Shop_type" id="staticUsername" placeholder="Shop Type" value="<?php if(isset($type)) echo $type ?>">
+				      <?php if (isset($error_type)) echo '<div class="error">'.$error_type.'</div>';?>
 				</div>
 
 			</div>
@@ -306,7 +281,6 @@
 				      <?php if (isset($error_shop)) echo '<div class="error">'.$error_shop.'</div>';?>
 				</div>
 				
-
 			</div-->
 
 			<div class="col-12">
@@ -316,7 +290,7 @@
 				      <input type="file" class="form-control" id="fileUpload" placeholder="Browse" required="" multiple="">
 				</div-->
 
-				<form action="/action_page.php">
+				
 			    <p>Choose Profile Image*</p>
 			    <div class="custom-file mb-3">
 			      <input type="file" class="custom-file-input" id="customFile" name="Trad_Image" value="<?php if(isset($image)) echo $image ?>" accept="image/*">
@@ -365,6 +339,7 @@
 
 <?php
 	include "footer.php";
+	clearMsg();
 ?>
 
 

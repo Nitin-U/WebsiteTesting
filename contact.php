@@ -1,9 +1,3 @@
-<!--?php 
-    echo $_SESSION['username'];
-    echo $_SESSION['role'];
-?-->
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +5,7 @@
 
 	<?php
 	
-    //include "crud/connection.php";
+    include "crud/connection.php";
     include "header.php";
     
 	?>

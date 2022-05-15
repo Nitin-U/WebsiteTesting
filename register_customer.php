@@ -1,6 +1,6 @@
-<!--?php
+<?php
 	include "crud/connection.php";
-?-->
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -166,7 +166,6 @@
 			if ($result = oci_parse($conn, $query));
 			{
 				oci_execute($result);
-				$success="Customer Account Registered Successfully! <a href='login.php' style=' text-decoration:none; color:#000; '>Click here to login</a>";
 				$name="";
 				$email="";
 				$phone="";
@@ -174,6 +173,7 @@
 				$gender="";
 				$username="";
 				$role = "";
+				$_SESSION['passmessage'] = "Account Registration Successful, click to <a href='login.php'>verify</a>";
 			}
 
 
@@ -187,22 +187,6 @@
 
 ?>
 
-<?php
-	if (isset($success)) 
-		{?>
-			<div class="container" id="customer_message">
-			    <div class="row">
-			        <div class="col-md-12">  
-			            <div class="alert alert-success-alt alert-dismissable w-75 mx-auto">
-			                <span class="glyphicon glyphicon-certificate"></span>
-			                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
-			                    ×</button><?php echo $success; 	 	
-	}
-?>
-			            </div>
-			        </div>
-			    </div>
-			</div>
 
 <div class="container col-lg-6 pt-2 pb-4 col-md-8 col-sm-10" id="container-register">
   <div class="border rounded shadow p-3 bg-white rounded">
@@ -367,6 +351,7 @@
 
 <?php
 	include "footer.php";
+	clearMsg();
 ?>
 
 
