@@ -1,3 +1,6 @@
+<?php
+include "crud/connection.php";
+?>
 <!DOCTYPE html>
 <html>
 <head>

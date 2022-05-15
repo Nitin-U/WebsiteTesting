@@ -1,0 +1,1 @@
+<h1 style="color: lightgreen;">SUCCESSFULL PAYMENT!</h1>

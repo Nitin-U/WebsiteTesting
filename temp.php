@@ -74,7 +74,42 @@ elseif ($_SESSION['role']!='customer')
 
   button.btn.btn-update:hover{
     color: #fff;
-    background-color: #7CC355;
+    background-color: #1F2130;
+  }
+
+  button.btn.btn-apply{
+    color: #fff;
+    background-color: #F48037;
+    transition: .4s;
+  }
+
+  button.btn.btn-apply:hover{
+    color: #fff;
+    background-color: #1F2130;
+  }
+
+  button.btn.btn-deleteall{
+    color: #fff;
+    background-color: #F48037;
+    transition: .4s;
+  }
+
+  button.btn.btn-deleteall:hover{
+    color: #fff;
+    background-color: #1F2130;
+  }
+
+  a.btn.btn-purchase{
+    color: #fff;
+    background-color: #F48037;
+    border-color: #F48037;
+    transition: .4s;
+  }
+
+  a.btn.btn-purchase:hover{
+    color: #fff;
+    background-color: #1F2130;
+    border-color: #1F2130;
   }
 
 
@@ -348,7 +383,7 @@ elseif ($_SESSION['role']!='customer')
 
               <form action="coupon.php" method="POST">
                 <div class="form-group">
-                  <div class="input-group"> <input type="text" class="form-control coupon" name="coupon" placeholder="Coupon code"> <span class="input-group-append"> <button class="btn btn-primary btn-apply coupon">Apply</button> </span> </div>
+                  <div class="input-group"> <input type="text" class="form-control coupon" name="coupon" placeholder="Coupon code"> <span class="input-group-append"> <button class="btn btn-apply coupon">Apply</button> </span> </div>
                 </div>
               </form>
               
@@ -356,15 +391,19 @@ elseif ($_SESSION['role']!='customer')
 
               <dl class="dlist-align">
                 <dt>Grand Total:</dt>
-                <dd class="text-right text-dark b ml-3"><strong>$ <?php echo $sub_total - $discount; ?></strong></dd>
+                <?php $grandTotal = $sub_total - $discount;?>
+                <dd class="text-right text-dark b ml-3"><strong>$ <?php echo $grandTotal ?></strong></dd>
               </dl>
               <form action="delete.php" method="POST">
 
-                <button type="submit" href="#" class="btn btn-dark btn-square btn-main" data-abc="true" name="deleteBtn" onclick="return confirm('Are you sure you want empty whole cart?')"> Delete All </button> 
+                <button type="submit" href="#" class="btn btn-deleteall btn-main" data-abc="true" name="deleteBtn" onclick="return confirm('Are you sure you want empty whole cart?')"> Delete All </button> 
 
               </form> 
 
-              <a href="#" class="btn btn-out btn-dark btn-square btn-main mt-2" data-abc="true">Purchase</a>
+              <a href="collection.php" class="btn btn-out btn-dark btn-purchase btn-main mt-2" data-abc="true">Purchase</a>
+              <div class="mt-2" id="paypal-payment-button">
+                
+              </div>
             </div>
           </div>
         </aside>
@@ -376,6 +415,12 @@ elseif ($_SESSION['role']!='customer')
     </div>
   </div>
 </div>
+
+<script src="https://www.paypal.com/sdk/js?client-id=AVeL3KJl8bu1X3Mw_1Zxoq2lFarEcVcXEO9lGHHeETHJYxvw0xLk4q40fJNjBikcB9_zoguwGjxmNpSC&disable-funding=credit,card"></script>
+<script type="text/javascript">
+  const total = <?php echo $grandTotal;?>
+</script>
+<script src="js/paypal.js"></script>
 
 <?php
 include "footer.php";
