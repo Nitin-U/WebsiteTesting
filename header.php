@@ -165,20 +165,24 @@ $_SESSION['cart_count']=$row['QUANTITYTOTAL'];
 				    					<a class="dropdown-item nav-link" href="#">Wishlist</a>
 				    				<?php } ?> 
 
-				    				<?php if ($_SESSION['role']=='trader' || $_SESSION['role']=='admin') { ?>
+				    				<?php if ($_SESSION['role']=='trader') { ?>
 
-				    					<a class="dropdown-item nav-link" href="addProduct.php">Add Product</a>
 				    					<a class="dropdown-item nav-link" href="trader_profile_setting.php">Profile</a>
+				    					<a class="dropdown-item nav-link" href="addProduct.php">Manage Product</a>
+				    				<?php } ?> 
+
+				    				<?php if($_SESSION['role']=='admin'){ ?>
+				    					<a class="dropdown-item nav-link" href="manageTrader.php">Manage trader</a>
+				    					<a class="dropdown-item nav-link" href="manageTraderProduct.php">Manage Product</a>
+				    				<?php } ?>
 				    				</div> 
 
-				    			<?php } ?> 
+				    			
 				    		</li>
 
 				    		<li class="nav-item active mx-auto">
 				    			<a class="nav-link navbar-brand mr-4" href="logout.php">Logout <span class="sr-only">(current)</span></a>
 				    		</li>
-
-
 
 				    	<?php }
 
