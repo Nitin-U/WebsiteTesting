@@ -61,7 +61,7 @@ elseif ($_SESSION['role']!='customer')
    }
 
    input.number_input{
-    width: 25%;
+    width: 35%;
   }
 
   button.btn.btn-update{

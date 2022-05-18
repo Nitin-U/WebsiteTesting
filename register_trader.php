@@ -38,6 +38,7 @@
 		$type = $_POST['Shop_type'];
 		$image=$_POST['Trad_Image'];
 		$role = "trader";
+		$status = "Not Verified";
 
 		//$file = $_FILES['Trad_Image'];
 
@@ -168,7 +169,7 @@
 
 			//$query = "INSERT INTO Register_Trader(Trader_Name, Trader_Email, Trader_Phone, Trader_Username, Trader_Password, Trader_Type, Trader_Shop, Trader_Image, Trader_Role) VALUES ('$name', '$email', '$phone', '$username', '$password', '$type', '$shop' , '$image', '$role')";
 
-			$query = "INSERT INTO user_master(Name, Email, Phone, Username, Password, Shop_Type, Shop_Image, Role) VALUES ('$name', '$email', '$phone', '$username', '$password', '$type', '$image', '$role')";
+			$query = "INSERT INTO user_master(Name, Email, Phone, Username, Password, Shop_Type, Shop_Image, Role, Status) VALUES ('$name', '$email', '$phone', '$username', '$password', '$type', '$image', '$role', '$status')";
 			
 			if ($result = oci_parse($conn, $query))
 			{
@@ -179,7 +180,9 @@
 				$username="";
 				$type="";
 				$image="";
-				$_SESSION['passmessage'] = "Account Registration Successful, click to <a href='login.php'>verify</a>";
+				$_SESSION['passmessage'] = "Account Registration Successful";
+
+				//$_SESSION['passmessage'] = "Account Registration Successful, click to <a href='login.php'>verify</a>";
 			}
 
 

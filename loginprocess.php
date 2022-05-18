@@ -22,13 +22,17 @@ if (isset($_POST['submit']))
 
 			if($row = oci_fetch_assoc($result))
 			{
-				if (password_verify($password, $row['PASSWORD'])) 
+				if (password_verify($password, $row['PASSWORD']) && $row['STATUS']=='Verified') 
 				{
 					$_SESSION['username'] = $username;
 					$_SESSION['role'] = $row['ROLE'];
 					$_SESSION['id'] = $row['USER_ID'];
 					$_SESSION['passmessage']="Logged in Successfully";
  					header("Location: index.php");		
+				}
+				elseif ($row['STATUS']!='Verified') {
+					$_SESSION['failmessage']="Your account is not verified yet";
+					header("Location: login.php");
 				}
 				else 
 				{

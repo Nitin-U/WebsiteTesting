@@ -48,6 +48,7 @@
 		$password=$_POST['CPass'];
 		$password_confirm=$_POST['CPassCon'];
 		$role = "customer";
+		$status = "Verified";
 		$error = 0;
 
 		if(strlen($name)<5)
@@ -159,7 +160,7 @@
 
 			//$query = "INSERT INTO Register_Customer(Customer_Name, Customer_Email, Customer_Phone, Customer_Age, Customer_Gender, Customer_Username, Customer_Pass, Customer_Role) VALUES ('$name', '$email', '$phone', '$age', '$gender', '$username', '$password', '$role')";
 
-			$query = "INSERT INTO user_master(Name, Email, Phone, Age, Gender, Username, Password, Role) VALUES ('$name', '$email', '$phone', '$age', '$gender', '$username', '$password', '$role')";
+			$query = "INSERT INTO user_master(Name, Email, Phone, Age, Gender, Username, Password, Role, Status) VALUES ('$name', '$email', '$phone', '$age', '$gender', '$username', '$password', '$role', '$status')";
 
 			//mysqli_query($connect, $query);
 			
@@ -173,7 +174,9 @@
 				$gender="";
 				$username="";
 				$role = "";
-				$_SESSION['passmessage'] = "Account Registration Successful, click to <a href='login.php'>verify</a>";
+				$_SESSION['passmessage'] = "Account Registration Successful";
+
+				//$_SESSION['passmessage'] = "Account Registration Successful, click to <a href='login.php'>verify</a>";
 			}
 
 
