@@ -13,17 +13,18 @@ CREATE TABLE user_master(
     Role VARCHAR2(255),
     Password VARCHAR2(255),
     Shop_Type VARCHAR2(255),
-    Shop_Image VARCHAR2(255)
+    Shop_Image VARCHAR2(255),
+    Status VARCHAR(255)
 );
 
-INSERT INTO user_master(User_ID, Name, Email, Phone, Username, Password, Shop_Type, Shop_Image, Role) VALUES (145, 'Butcher', 'Butcher@gmail.com', '9809876543', 'Butcher', '$2a$12$YSJbm0jLp.SDxB.kPcqtJeSEeXqZnGmwQwqQ.VRY2Z0OY2g9EhCY.', 'Butcher', 'Meat.png', 'trader');
-INSERT INTO user_master(User_ID, Name, Email, Phone, Username, Password, Shop_Type, Shop_Image, Role) VALUES (144, 'Delicatessen', 'Delicatessen@gmail.com', '9809876999', 'Delicatessen', '$2a$12$YSJbm0jLp.SDxB.kPcqtJeSEeXqZnGmwQwqQ.VRY2Z0OY2g9EhCY.', 'Delicatessen', 'delicatessen.png', 'trader');
-INSERT INTO user_master(User_ID, Name, Email, Phone, Username, Password, Shop_Type, Shop_Image, Role) VALUES (143, 'Greengrocer', 'Greengrocer@gmail.com', '9809878883', 'Greengrocer', '$2a$12$YSJbm0jLp.SDxB.kPcqtJeSEeXqZnGmwQwqQ.VRY2Z0OY2g9EhCY.', 'Greengrocer', 'Grocery.png', 'trader');
-INSERT INTO user_master(User_ID, Name, Email, Phone, Username, Password, Shop_Type, Shop_Image, Role) VALUES (142, 'Fishmonger', 'Fishmonger@gmail.com', '98098766643', 'Fishmonger', '$2a$12$YSJbm0jLp.SDxB.kPcqtJeSEeXqZnGmwQwqQ.VRY2Z0OY2g9EhCY.', 'Fishmonger', 'Fish.png', 'trader');
-INSERT INTO user_master(User_ID, Name, Email, Phone, Username, Password, Shop_Type, Shop_Image, Role) VALUES (141, 'Bakery', 'Bakery@gmail.com', '980966776543', 'Bakery', '$2a$12$YSJbm0jLp.SDxB.kPcqtJeSEeXqZnGmwQwqQ.VRY2Z0OY2g9EhCY.', 'Bakery', 'bakery.png', 'trader');
-INSERT INTO user_master(User_ID, Name, Email, Username, Password, Role) VALUES (180, 'Administrator', 'admin@gmail.com', 'Admin', '$2y$10$ehXykFG7aXMwRNMOMM/O9.8y/zQ9KxXMWpF/GBLPB5v21ngof6Qdq', 'admin');
-INSERT INTO user_master(User_ID, Name, Gender, Email, Username, Password, Role, Phone, Age) VALUES (240, 'Customer', 'Male', 'customer@gmail.com', 'Customer', '$2y$10$YuPUXKU6OJRCe907xKWCeusVah8PXbxxqBobqy6jwrkvjgGkS8QV.', 'customer', '9878345654', '18-24');
-INSERT INTO user_master(User_ID, Name, Gender, Email, Username, Password, Role, Phone, Age) VALUES (241, 'Customer2', 'Male', 'customer2@gmail.com', 'Customer2', '$2y$10$YuPUXKU6OJRCe907xKWCeusVah8PXbxxqBobqy6jwrkvjgGkS8QV.', 'customer', '9878345654', 'Above 30');
+INSERT INTO user_master(User_ID, Name, Email, Phone, Username, Password, Shop_Type, Shop_Image, Role, Status) VALUES (145, 'Butcher', 'Butcher@gmail.com', '9809876543', 'Butcher', '$2a$12$YSJbm0jLp.SDxB.kPcqtJeSEeXqZnGmwQwqQ.VRY2Z0OY2g9EhCY.', 'Butcher', 'Meat.png', 'trader', 'Verified');
+INSERT INTO user_master(User_ID, Name, Email, Phone, Username, Password, Shop_Type, Shop_Image, Role, Status) VALUES (144, 'Delicatessen', 'Delicatessen@gmail.com', '9809876999', 'Delicatessen', '$2a$12$YSJbm0jLp.SDxB.kPcqtJeSEeXqZnGmwQwqQ.VRY2Z0OY2g9EhCY.', 'Delicatessen', 'delicatessen.png', 'trader', 'Verified');
+INSERT INTO user_master(User_ID, Name, Email, Phone, Username, Password, Shop_Type, Shop_Image, Role, Status) VALUES (143, 'Greengrocer', 'Greengrocer@gmail.com', '9809878883', 'Greengrocer', '$2a$12$YSJbm0jLp.SDxB.kPcqtJeSEeXqZnGmwQwqQ.VRY2Z0OY2g9EhCY.', 'Greengrocer', 'Grocery.png', 'trader', 'Verified');
+INSERT INTO user_master(User_ID, Name, Email, Phone, Username, Password, Shop_Type, Shop_Image, Role, Status) VALUES (142, 'Fishmonger', 'Fishmonger@gmail.com', '98098766643', 'Fishmonger', '$2a$12$YSJbm0jLp.SDxB.kPcqtJeSEeXqZnGmwQwqQ.VRY2Z0OY2g9EhCY.', 'Fishmonger', 'Fish.png', 'trader', 'Verified');
+INSERT INTO user_master(User_ID, Name, Email, Phone, Username, Password, Shop_Type, Shop_Image, Role, Status) VALUES (141, 'Bakery', 'Bakery@gmail.com', '980966776543', 'Bakery', '$2a$12$YSJbm0jLp.SDxB.kPcqtJeSEeXqZnGmwQwqQ.VRY2Z0OY2g9EhCY.', 'Bakery', 'bakery.png', 'trader', 'Verified');
+INSERT INTO user_master(User_ID, Name, Email, Username, Password, Role, Status) VALUES (180, 'Administrator', 'admin@gmail.com', 'Admin', '$2y$10$ehXykFG7aXMwRNMOMM/O9.8y/zQ9KxXMWpF/GBLPB5v21ngof6Qdq', 'admin', 'Verified');
+INSERT INTO user_master(User_ID, Name, Gender, Email, Username, Password, Role, Phone, Age, Status) VALUES (240, 'Customer', 'Male', 'customer@gmail.com', 'Customer', '$2y$10$YuPUXKU6OJRCe907xKWCeusVah8PXbxxqBobqy6jwrkvjgGkS8QV.', 'customer', '9878345654', '18-24', 'Verified');
+INSERT INTO user_master(User_ID, Name, Gender, Email, Username, Password, Role, Phone, Age, Status) VALUES (241, 'Customer2', 'Male', 'customer2@gmail.com', 'Customer2', '$2y$10$YuPUXKU6OJRCe907xKWCeusVah8PXbxxqBobqy6jwrkvjgGkS8QV.', 'customer', '9878345654', 'Above 30', 'Verified');
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -340,6 +341,15 @@ CREATE TABLE VOUCHER(
 INSERT INTO VOUCHER VALUES (1, 'CLECK100', 3.99, '10/01/2022');
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+DROP TABLE PASSWORD_RESET CASCADE CONSTRAINT;
+
+CREATE TABLE PASSWORD_RESET(
+	TOKEN VARCHAR2(255),
+    FK1_User_ID	INTEGER NOT NULL
+);
+ALTER TABLE PASSWORD_RESET ADD CONSTRAINT FK1_RESET_TO_USER FOREIGN KEY(FK1_User_ID) REFERENCES user_master(User_ID) ON DELETE CASCADE;
+
 
 /*
 DROP TABLE PRODUCT CASCADE CONSTRAINT;
