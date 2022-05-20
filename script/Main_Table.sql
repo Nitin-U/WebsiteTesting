@@ -17,7 +17,7 @@ CREATE TABLE user_master(
     Status VARCHAR(255)
 );
 
-INSERT INTO user_master(User_ID, Name, Email, Phone, Username, Password, Shop_Type, Shop_Image, Role, Status) VALUES (145, 'Butcher', 'Butcher@gmail.com', '9809876543', 'Butcher', '$2a$12$YSJbm0jLp.SDxB.kPcqtJeSEeXqZnGmwQwqQ.VRY2Z0OY2g9EhCY.', 'Butcher', 'Meat.png', 'trader', 'Verified');
+INSERT INTO user_master(User_ID, Name, Email, Phone, Username, Password, Shop_Type, Shop_Image, Role, Status) VALUES (145, 'Butcher', 'nitinutsav555@gmail.com', '9809876543', 'Butcher', '$2a$12$YSJbm0jLp.SDxB.kPcqtJeSEeXqZnGmwQwqQ.VRY2Z0OY2g9EhCY.', 'Butcher', 'Meat.png', 'trader', 'Not Verified');
 INSERT INTO user_master(User_ID, Name, Email, Phone, Username, Password, Shop_Type, Shop_Image, Role, Status) VALUES (144, 'Delicatessen', 'Delicatessen@gmail.com', '9809876999', 'Delicatessen', '$2a$12$YSJbm0jLp.SDxB.kPcqtJeSEeXqZnGmwQwqQ.VRY2Z0OY2g9EhCY.', 'Delicatessen', 'delicatessen.png', 'trader', 'Verified');
 INSERT INTO user_master(User_ID, Name, Email, Phone, Username, Password, Shop_Type, Shop_Image, Role, Status) VALUES (143, 'Greengrocer', 'Greengrocer@gmail.com', '9809878883', 'Greengrocer', '$2a$12$YSJbm0jLp.SDxB.kPcqtJeSEeXqZnGmwQwqQ.VRY2Z0OY2g9EhCY.', 'Greengrocer', 'Grocery.png', 'trader', 'Verified');
 INSERT INTO user_master(User_ID, Name, Email, Phone, Username, Password, Shop_Type, Shop_Image, Role, Status) VALUES (142, 'Fishmonger', 'Fishmonger@gmail.com', '98098766643', 'Fishmonger', '$2a$12$YSJbm0jLp.SDxB.kPcqtJeSEeXqZnGmwQwqQ.VRY2Z0OY2g9EhCY.', 'Fishmonger', 'Fish.png', 'trader', 'Verified');
@@ -346,7 +346,8 @@ DROP TABLE PASSWORD_RESET CASCADE CONSTRAINT;
 
 CREATE TABLE PASSWORD_RESET(
 	TOKEN VARCHAR2(255),
-    FK1_User_ID	INTEGER NOT NULL
+    FK1_User_ID	INTEGER NOT NULL,
+    VALID_TILL TIMESTAMP
 );
 ALTER TABLE PASSWORD_RESET ADD CONSTRAINT FK1_RESET_TO_USER FOREIGN KEY(FK1_User_ID) REFERENCES user_master(User_ID) ON DELETE CASCADE;
 
