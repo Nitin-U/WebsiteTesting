@@ -108,7 +108,7 @@
 					<div class="items col-lg-3 col-md-4 col-sm-4 col-xs-4 mb-0 mt-4">
 						<form action="addtocart.php" method="POST">
 							<div class="card shadow bg-white rounded">
-								<a href="productpage.php?id=<?php echo $row['PRODUCT_ID']?>"><img src="img/food/<?php echo $row['PRODUCT_IMAGE']; ?>" alt="" class="card-img-top"> </a>
+								<a href="productdescription.php?id=<?php echo $row['PRODUCT_ID']?>"><img src="img/food/<?php echo $row['PRODUCT_IMAGE']; ?>" alt="" class="card-img-top"> </a>
 								<div class="card-body">
 									<h5 class="card-title cardprodname"><?php echo $row['PRODUCT_NAME']; ?></h5>
 									<p>
@@ -299,7 +299,7 @@
 				<div class="items col-lg-3 col-md-4 col-sm-4 col-xs-6 mb-0 mt-4">
 					<form action="addtocart.php" method="POST">
 						<div class="card shadow bg-white rounded">
-							<a href="productpage.php?id=<?php echo $row['PRODUCT_ID']?>"><img src="img/food/<?php echo $row['PRODUCT_IMAGE']; ?>" alt="" class="card-img-top"> </a>
+							<a href="productdescription.php?id=<?php echo $row['PRODUCT_ID']?>"><img src="img/food/<?php echo $row['PRODUCT_IMAGE']; ?>" alt="" class="card-img-top"> </a>
 							<div class="card-body">
 								<h5 class="card-title cardprodname"><?php echo $row['PRODUCT_NAME']; ?></h5>
 								<p>
