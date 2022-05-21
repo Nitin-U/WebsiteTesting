@@ -400,10 +400,10 @@ elseif ($_SESSION['role']!='customer')
 
               </form> 
 
-              <a href="collection.php" class="btn btn-out btn-dark btn-purchase btn-main mt-2" data-abc="true">Purchase</a>
-              <div class="mt-2" id="paypal-payment-button">
+              <a href="collection.php?total=<?php echo $grandTotal ?>" class="btn btn-out btn-dark btn-purchase btn-main mt-2" data-abc="true">Proceed</a>
+              <!-- <div class="mt-2" id="paypal-payment-button">
                 
-              </div>
+              </div> -->
             </div>
           </div>
         </aside>
@@ -416,11 +416,11 @@ elseif ($_SESSION['role']!='customer')
   </div>
 </div>
 
-<script src="https://www.paypal.com/sdk/js?client-id=AVeL3KJl8bu1X3Mw_1Zxoq2lFarEcVcXEO9lGHHeETHJYxvw0xLk4q40fJNjBikcB9_zoguwGjxmNpSC&disable-funding=credit,card"></script>
+<!-- <script src="https://www.paypal.com/sdk/js?client-id=AVeL3KJl8bu1X3Mw_1Zxoq2lFarEcVcXEO9lGHHeETHJYxvw0xLk4q40fJNjBikcB9_zoguwGjxmNpSC&disable-funding=credit,card"></script>
 <script type="text/javascript">
   const total = <?php echo $grandTotal;?>
 </script>
-<script src="js/paypal.js"></script>
+<script src="js/paypal.js"></script> -->
 
 <?php
 include "footer.php";

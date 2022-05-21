@@ -4,7 +4,8 @@
 paypal.Buttons({
 	style: {
 		color: 'blue',
-		shape: 'pill'
+		shape: 'pill',
+		label: 'checkout'
 	},
 	createOrder:function(data,actions){
 		return actions.order.create({
