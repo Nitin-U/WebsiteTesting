@@ -10,5 +10,5 @@
       <a href="displayProduct.php">Display Products</a>
     </div>
     <a class="<?php if($_SERVER['PHP_SELF'] == '/Website testing/shop_trader.php') echo 'active'?>" href="shop_trader.php">&nbsp;<i class="fa fa-shop" style="color:white;"></i> &nbsp; Shops</a>
-    <a class="<?php if($_SERVER['PHP_SELF'] == '/Website testing/discount.php') echo 'active'?>" href="discount.php">&nbsp;<i class="fa fa-percent" style="color:white;"></i> &nbsp; Discounts</a>
+    <!-- <a class="<?php if($_SERVER['PHP_SELF'] == '/Website testing/discount.php') echo 'active'?>" href="discount.php">&nbsp;<i class="fa fa-percent" style="color:white;"></i> &nbsp; Discounts</a> -->
   </div>
