@@ -1,14 +1,16 @@
 <?php
 include "crud/connection.php";
+if ($_SESSION['role']!='customer') 
+{
+    header("Location: index.php");
+}
+
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Collection Slot</title>
+<?php
+$grandTotal = $_SESSION['grandTotal'];
 
-    <?php
-    include "header.php";
-
+?>
+   <?php
     // if (isset($choosetime)) == $_POST['chooseTime'];
     // echo $choosetime; 
     date_default_timezone_set('Asia/Kathmandu');
@@ -17,8 +19,8 @@ include "crud/connection.php";
     $date_dayCount = date('w');
 
     // $date_day = date('l');    
-    // $date_dayCount = 2;    
-    // $date_time = 16;
+    // $date_dayCount = 6;    
+    // $date_time = 20;
     // echo $date_dayCount;
     // echo $date_time;
 
@@ -28,27 +30,37 @@ include "crud/connection.php";
         if (isset($_POST['chooseday']) && isset($_POST['choosetime']) && isset($_POST['chooseweek']))
         {
             $chooseday = $_POST['chooseday'];
+            $_SESSION['chooseday'] = $_POST['chooseday'];
             $chooseweek =$_POST['chooseweek'];
             $choosetime = $_POST['choosetime'];
             $availableTime=array(10,13,16);
+            $count=0;
+            // if($date_dayCount==6)
+            // {
+            //     $date_dayCount=5;
+            // }
             if($chooseweek=='thisWeek')
             {
                 if($chooseday<=$date_dayCount)
                 {
                     if($date_dayCount>=5)
                     {
-                        $_SESSION['failmessage'] = "Please choose collection of next week";
+                        $_SESSION['failmessage'] = "Please choose collection slot of next week";
+                        $count++;
+
                     }
                     else{
-                        $_SESSION['failmessage'] = "Please choose collection 24hr";
+                        $_SESSION['failmessage'] = "Please choose slot 24hrs ahead";
+                        $count++;
                     }
                     
                 }
-                else
+                else if($chooseday>$date_dayCount)
                 {
                     if($date_dayCount==4 && $date_time>16)
                     {
                         $_SESSION['failmessage']="Choose collection slot of next week";
+                        $count++;
                     }
                     else
 
@@ -70,18 +82,53 @@ include "crud/connection.php";
                         }
                     }
                 }
+                if(!in_array($choosetime, $availableTime))
+                {
+
+                    $_SESSION['failmessage']="Please choose slot 24hrs ahead";
+                    $count++;
+                } 
+            }
+            if($count==0)
+            {
+                $_SESSION['passmessage']='Slot selection successful';
+                $pay=1;
+
+                if ($chooseday == 3) 
+                {
+                    $chooseday = 'Wednesday';
+                }
+                if ($chooseday == 4) 
+                {
+                    $chooseday = 'Thursday';
+                }
+                if ($chooseday == 5)
+                {
+                    $chooseday = 'Friday';
+                }
+
+                if ($choosetime == 10) 
+                {
+                    $choosetime = '10 AM - 13 PM';
+                }
+                if ($choosetime == 13) 
+                {
+                    $choosetime = '13 PM - 16 PM';
+                }
+                if ($choosetime == 16)
+                {
+                    $choosetime = '16 PM - 19 PM';
+                }
+
+                setcookie("chooseweek", $chooseweek, time()+30*24*60*60);
+                setcookie("choosetime", $choosetime, time()+30*24*60*60);
+                setcookie("chooseday", $chooseday, time()+30*24*60*60);
+                setcookie("grandtotal", $grandTotal, time()+30*24*60*60);
             }
 
-            if(!in_array($choosetime, $availableTime))
-            {
+            
 
-                $_SESSION['failmessage']="Please choose collection 24 hours ahead";
-            }    
 
-            else
-            {
-                $_SESSION['passmessage']="success";
-            }
 
 
             // if ($date_dayCount >= 5) 
@@ -122,7 +169,7 @@ include "crud/connection.php";
 
     }
 
-
+include "header.php";
     ?>
 
     <link rel="stylesheet" href="css/collection.css">
@@ -159,10 +206,9 @@ include "crud/connection.php";
             color: red;
         }
     </style>
-</head>
 
 <body>
-    <div class="container py-4 col-lg-6 col-sm-10" id="main">
+    <div class="container py-5 col-lg-6 col-sm-10" id="main">
         <form action="" method="POST" class="border rounded shadow p-3 mb-4" >
             <div class="col-12 text-center pb-4 pt-3">
                 <h1>Collection Slot</h1>
@@ -216,7 +262,7 @@ include "crud/connection.php";
             </div>
 
             <div class="col-md-12"> 
-                <div class="mt-2" id="paypal-payment-button">
+                <div class="mt-2" id="paypal-payment-button" style="<?php if(!isset($pay)) echo 'pointer-events: none; opacity: 75%'?>">
 
                 </div>
             </div>
@@ -228,10 +274,12 @@ include "crud/connection.php";
 
 <script src="https://www.paypal.com/sdk/js?client-id=AVeL3KJl8bu1X3Mw_1Zxoq2lFarEcVcXEO9lGHHeETHJYxvw0xLk4q40fJNjBikcB9_zoguwGjxmNpSC&disable-funding=credit,card"></script>
 <script type="text/javascript">
-    <?php
-    $grandTotal = $_GET['total']; 
-    ?>
+
     const total = <?php echo $grandTotal;?>
+</script>
+<script type="text/javascript">
+
+    const total2 = <?php echo $grandTotal2;?>
 </script>
 <script src="js/paypal.js"></script>
 
@@ -262,4 +310,3 @@ clearMsg();
 ?>
 
 </body>
-</html>
