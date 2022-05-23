@@ -110,7 +110,7 @@
 							<div class="card shadow bg-white rounded">
 								<a href="productdescription.php?id=<?php echo $row['PRODUCT_ID']?>"><img src="img/food/<?php echo $row['PRODUCT_IMAGE']; ?>" alt="" class="card-img-top"> </a>
 								<div class="card-body">
-									<h5 class="card-title cardprodname"><?php echo $row['PRODUCT_NAME']; ?></h5>
+									<h5 class="card-title cardprodname"><?php echo ucwords($row['PRODUCT_NAME']); ?></h5>
 									<p>
 										<!--i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: lightgrey;"></i><i class="fas fa-star" style="color: lightgrey;"></i-->
 											
@@ -301,7 +301,7 @@
 						<div class="card shadow bg-white rounded">
 							<a href="productdescription.php?id=<?php echo $row['PRODUCT_ID']?>"><img src="img/food/<?php echo $row['PRODUCT_IMAGE']; ?>" alt="" class="card-img-top"> </a>
 							<div class="card-body">
-								<h5 class="card-title cardprodname"><?php echo $row['PRODUCT_NAME']; ?></h5>
+								<h5 class="card-title cardprodname"><?php echo ucwords($row['PRODUCT_NAME']); ?></h5>
 								<p>
 									<!--i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: lightgrey;"></i><i class="fas fa-star" style="color: lightgrey;"></i-->
 

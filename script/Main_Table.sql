@@ -99,57 +99,54 @@ CREATE TABLE PRODUCT(
 
 ALTER TABLE PRODUCT ADD CONSTRAINT FK1_PRODUCT_TO_SHOP FOREIGN KEY(FK1_SHOP_ID) REFERENCES SHOP(SHOP_ID) ON DELETE CASCADE;
 
-INSERT INTO PRODUCT VALUES (1, 'Strawberries.jpg', '4star.jpg','Strawberries', 'Description', 'Allergy Information', 8.99 , 2.99 , 'Recommended', 2, 4, 1);
-INSERT INTO PRODUCT VALUES (2, 'Coconut Meat.jpg', '4star.jpg','Coconut Meat', 'Description', 'Allergy Information', 9.99 , 2.99 , 'Hot', 2, 4, 1);
-INSERT INTO PRODUCT VALUES (3, 'Watermelon.jpg', '3star.jpg','Watermelon', 'Description', 'Allergy Information', 19.99 , 2.99 , '', 2, 4, 1);
-INSERT INTO PRODUCT VALUES (4, 'Strawberries.jpg', '3star.jpg','Strawberries', 'Description', 'Allergy Information', 8.99 , 2.99 , '', 2, 4, 1);
-INSERT INTO PRODUCT VALUES (5, 'Pomegranate.jpg', '4star.jpg','Pomegranate', 'Description', 'Allergy Information', 25.99 , 2.99 , '', 2, 4, 1);
+INSERT INTO PRODUCT VALUES (1, 'Strawberries.png', '4star.jpg','strawberries', 'Is lovely for your smoothies, jams or baking.', 'Allergy Information', 8.99 , 2.99 , 'Recommended', 2, 4, 1);
+INSERT INTO PRODUCT VALUES (2, 'Pineapple.png', '4star.jpg','pineapple', 'Perfect balance of sweet and tart, Exceptional juiciness with a vibrant, tropical flavor, Excellent source of manganese and vitamin C', 'Allergy Information', 9.99 , 2.99 , 'Hot', 2, 4, 1);
+INSERT INTO PRODUCT VALUES (3, 'Watermelon.png', '3star.jpg','watermelon', 'Is juicy, sweet and grainy textured flesh is filled with 12-14% of sugar content, making it a healthy alternative to sugary carbonated drinks.', 'Allergy Information', 19.99 , 2.99 , '', 2, 4, 1);
 
 
-INSERT INTO PRODUCT VALUES (6, 'cucumber.jpg', '4star.jpg','cucumber', 'Description', 'Allergy Information', 18.99 , 2.99 , '', 2, 4, 2);
-INSERT INTO PRODUCT VALUES (7, 'eggplant.jpg', '4.5star.jpg','eggplant', 'Description', 'Allergy Information', 28.99 , 2.99 , 'Hot', 2, 4, 2);
-INSERT INTO PRODUCT VALUES (8, 'garlic.jpg', '4star.jpg','garlic', 'Description', 'Allergy Information', 7.99 , 2.99 , '', 2, 4, 2);
-INSERT INTO PRODUCT VALUES (9, 'green bean.jpg', '4.5star.jpg','green bean', 'Description', 'Allergy Information', 8.99 , 2.99 , '', 2, 4, 2);
-INSERT INTO PRODUCT VALUES (10, 'green pepper.jpg', '4star.jpg','green pepper', 'Description', 'Allergy Information', 8.99 , 2.99 , '', 2, 4, 2);
-
-INSERT INTO PRODUCT VALUES (11, 'Waffle Cone Premix.jpg', '4star.jpg','Waffle Cone Premix', 'Description', 'Allergy Information', 18.99 , 2.99 , 'Recommended', 2, 4, 9);
-INSERT INTO PRODUCT VALUES (12, 'Rusk Toast.jpg', '4star.jpg','Rusk Toast', 'Description', 'Allergy Information', 17.99 , 2.99 , '', 2, 4, 9);
-INSERT INTO PRODUCT VALUES (13, 'pancake.jpg', '4star.jpg','pancake', 'Description', 'Allergy Information', 16.99 , 2.99 , 'Hot', 2, 4, 9);
-INSERT INTO PRODUCT VALUES (14, 'donets.jpg', '4star.jpg','donets', 'Description', 'Allergy Information', 15.99 , 2.99 , 'Recommended', 2, 4, 9);
-INSERT INTO PRODUCT VALUES (15, 'donuts.jpg', '4star.jpg','donuts', 'Description', 'Allergy Information', 14.99 , 2.99 , '', 2, 4, 9);
+INSERT INTO PRODUCT VALUES (27, 'Cucumber.png', '4star.jpg','cucumber  ', 'Fast growing and high resistant to disease.  They are ideal for detoxification and preventing dehydration. Cucumbers are rich in phytonutrients and vitamin K.', 'Allergy Information', 8.99 , 2.99 , 'Recommended', 2, 4, 2);
+INSERT INTO PRODUCT VALUES (5, 'Green Beans.png', '4.5star.jpg','green bean', 'Good at decreasing blood sugar levels and cholestrol levels. Because they are organically grown, they are free from chemical residues and completely natural. Broad beans can be used in simple vegetables dish in combination.', 'Allergy Information', 8.99 , 2.99 , '', 2, 4, 2);
+INSERT INTO PRODUCT VALUES (6, 'Brocoli.png', '4star.jpg','brocolli', 'Minimize dehydration and weight loss, thereby preserving firmness. Preventing decay, preventing discoloration & yellowing and slowing senescence (aging)', 'Allergy Information', 8.99 , 2.99 , '', 2, 4, 2);
 
 
-INSERT INTO PRODUCT VALUES (16, 'sprinkled muffin.jpg', '4star.jpg','sprinkled muffin', 'Description', 'Allergy Information', 19.99 , 2.99 , '', 2, 4, 10);
-INSERT INTO PRODUCT VALUES (17, 'Pies.jpg', '4star.jpg','Pies', 'Description', 'Allergy Information', 21.99 , 2.99 , '', 2, 4, 10);
-INSERT INTO PRODUCT VALUES (18, 'Red Velvet.jpg', '4star.jpg','Red Velvet', 'Description',  'Allergy Information', 24.99 , 2.99 , 'Hot', 2, 4, 10);
-INSERT INTO PRODUCT VALUES (19, 'Cake.jpg', '4star.jpg','Cake', 'Description', 'Allergy Information', 27.99 , 2.99 , 'Recommended', 2, 4, 10);
+INSERT INTO PRODUCT VALUES (7, 'Boneless Mutton.png', '4star.jpg','boneless Mutton', 'Minimum quantity for "Buffalo Meat steak Standard Boneless (Imported) 1kg" .', 'Allergy Information',  46.99 , 2.99 , '', 2, 4, 3);
+INSERT INTO PRODUCT VALUES (8, 'Frozen Pork.png', '4star.jpg','frozen Pork', 'We make available highly hygienically processed Frozen Pork. Product are a quality driven and make sure that the offered lot is prepared using the premium grade raw material.', 'Allergy Information',  46.99 , 2.99 , 'Recommended', 2, 4, 3);
+INSERT INTO PRODUCT VALUES (9, 'Beef Heart.png', '4star.jpg','beef Heart', 'The Heart of the cow is a muscle, and thus shares many similarities with steak, roasts, and ground beef. Extremely high in protein, thiamine, folate, zinc and a great way to rack up amino acids that helps improve your metabolism', 'Allergy Information',  46.99 , 2.99 , '', 2, 4, 3);
 
 
-INSERT INTO PRODUCT VALUES (20, 'small-prawns.jpg', '4star.jpg','small-prawns', 'Description', 'Allergy Information', 22.99 , 2.99 , '', 2, 4, 7);
-INSERT INTO PRODUCT VALUES (21, 'Shrimp.jpg', '4star.jpg','Shrimp', 'Description', 'Allergy Information', 24.99 , 2.99 ,'Hot', 2, 4, 7);
-INSERT INTO PRODUCT VALUES (22, 'Shrimp white.jpg', '4star.jpg','Shrimp white', 'Description', 'Allergy Information', 29.99 , 2.99 , '', 2, 4, 7);
-INSERT INTO PRODUCT VALUES (23, 'prown.jpg', '4star.jpg','prown', 'Description', 'Allergy Information', 19.99 , 2.99 , '', 2, 4, 7);
-INSERT INTO PRODUCT VALUES (24, 'crab stick.jpg', '4star.jpg','crab stick', 'Description', 'Allergy Information', 39.99 , 2.99 , 'Recommended', 2, 4, 7);
-
-INSERT INTO PRODUCT VALUES (25, 'SALMON.jpg', '4star.jpg','SALMON', 'Description', 'Allergy Information', 36.99 , 2.99 , '', 2, 4, 8);
-INSERT INTO PRODUCT VALUES (26, 'small king fish.jpg', '4star.jpg','small king fish', 'Description', 'Allergy Information', 37.99 , 2.99 , 'Recommended', 2, 4, 8);
-INSERT INTO PRODUCT VALUES (27, 'small fish.jpg', '4star.jpg','small fish', 'Description', 'Allergy Information', 39.99 , 2.99 , '', 2, 4, 8);
-INSERT INTO PRODUCT VALUES (28, 'raw fish.jpg', '4star.jpg','raw fish', 'Description', 'Allergy Information', 39.99 , 2.99 , 'Hot', 2, 4, 8);
-INSERT INTO PRODUCT VALUES (29, 'king fish.jpg', '4star.jpg','king fish', 'Description', 'Allergy Information', 37.99 , 2.99 , '', 2, 4, 8);
+INSERT INTO PRODUCT VALUES (10, 'Range Chicken.png', '4star.jpg','range chicken', 'The only chicken that makes it into our online butcher, which means that you are getting great quality as well as flavour.', 'Allergy Information', 9.99 ,  2.99 , 'Recommended', 2, 4, 4);
+INSERT INTO PRODUCT VALUES (11, 'Frozen Legpieces.png', '4star.jpg','frozen legpiece', 'Fresh/Frozen Whole Big Hard Boiler Chicken/Hen (Per kg) range chicken is the only chicken that makes it into our online butcher, which means that you are getting great quality as well as flavour.', 'Allergy Information', 9.99 ,  2.99 , '', 2, 4, 4);
+INSERT INTO PRODUCT VALUES (12, 'Chicken Wings.png', '4star.jpg','chicken wings', 'wings are perfect for people that don’t want to make a whole turkey, or maybe your family just like the wings.', 'Allergy Information', 9.99 ,  2.99 , 'Hot', 2, 4, 4);
 
 
-INSERT INTO PRODUCT VALUES (30, 'beek.jpg', '4star.jpg','beek', 'Description', 'Allergy Information',  46.99 , 2.99 , '', 2, 4, 3);
-INSERT INTO PRODUCT VALUES (31, 'frozen meat.jpg', '4star.jpg','frozen meat', 'Description', 'Allergy Information', 48.99 , 2.99 , 'Hot', 2, 4, 3);
-INSERT INTO PRODUCT VALUES (32, 'fronen mutton.jpg', '4star.jpg','fronen mutton', 'Description', 'Allergy Information', 55.99 , 2.99 , '', 2, 4, 3);
-INSERT INTO PRODUCT VALUES (33, 'tenderloin.jpg', '4star.jpg','tenderloin', 'Description', 'Allergy Information', 54.99 , 2.99 , 'Recommended', 2, 4, 3);
-INSERT INTO PRODUCT VALUES (34, 'boneless-mutton.jpg', '4star.jpg','boneless-mutton', 'Description', 'Allergy Information', 25.99 , 2.99 , '', 2, 4, 3);
+INSERT INTO PRODUCT VALUES (13, 'Croissants.png', '4star.jpg','croissants', 'Croissants made with all-butter, deliciously moreish and the perfect accompaniment to some freshly brewed coffee. ', 'Allergy Information', 18.99 , 2.99 , 'Recommended', 2, 4, 9);
+INSERT INTO PRODUCT VALUES (14, 'Sausage Rolls.png', '4star.jpg','sausage rolls', 'Slice a farl in half, griddle & whack it around a fried egg, bacon, sausage and some brown or red sauce for the ultimate on the go breakfast', 'Allergy Information', 18.99 , 2.99 , 'Hot', 2, 4, 9);
+INSERT INTO PRODUCT VALUES (15, 'Coco Buns.png', '4star.jpg','coco buns', 'Orange flavoured scone with milk chocolate chunks and drizzled with chocolate.  This tastes lovely gently warmed.', 'Allergy Information', 18.99 , 2.99 , 'Recommended', 2, 4, 9);
 
 
-INSERT INTO PRODUCT VALUES (35, 'gizzard.jpg', '4star.jpg','gizzard', 'Description', 'Allergy Information', 9.99 ,  2.99 , '', 2, 4, 4);
-INSERT INTO PRODUCT VALUES (36, 'whole boiler chicken.jpg', '4star.jpg','boiler chicken', 'Description', 'Allergy Information', 19.99 , 2.99 , 'Recommended', 2, 4, 4);
-INSERT INTO PRODUCT VALUES (37, 'range chicken.jpg', '4star.jpg','range chicken', 'Description', 'Allergy Information', 10.99 , 2.99 , '', 2, 4, 4);
-INSERT INTO PRODUCT VALUES (38, 'large chicken wings.jpg', '4star.jpg','large chicken wings', 'Description', 'Allergy Information', 8.99 , 2.99 , 'Hot', 2, 4, 4);
-INSERT INTO PRODUCT VALUES (39, 'frozen wing.png', '4star.jpg','frozen wing', 'Description', 'Allergy Information', 5.99 , 2.99 , '', 2, 4, 4);
+INSERT INTO PRODUCT VALUES (16, 'Brownie Stack.png', '4star.jpg','brownie stack', 'Chocolately, fudgey goodness with a creamy salted caramel, our brownie comes as a whole slab in a foil tray - perfect for heating in the oven and ready for you to portion.', 'Allergy Information', 19.99 , 2.99 , 'Hot', 2, 4, 10);
+INSERT INTO PRODUCT VALUES (17, 'Cupcakes.png', '4star.jpg','cupcakes', 'Skillfully hand crafted, expertly decorated and full of fantastic flavour.', 'Allergy Information', 19.99 , 2.99 , 'Recommended', 2, 4, 10);
+INSERT INTO PRODUCT VALUES (18, 'Biscoff Brownie.png', '4star.jpg','biscoff hero', 'Creamy white chocolate cheesecake, made with real Belgium white chocolate, whipping cream & cream cheese from our local creamery. Then topped generously with Biscoff cookie butter, Biscoff crumbs, and a whole Biscoff biscuit.', 'Allergy Information', 19.99 , 2.99 , '', 2, 4, 10);
+
+
+INSERT INTO PRODUCT VALUES (19, 'Butter BlackGarlic.png', '4star.jpg','butter blackGarlic', 'Garlic is fermented for two weeks to caramelise it and then added to Abernethys rich creamy butter, giving a subtle sweetness', 'Allergy Information', 22.99 , 2.99 , 'Hot', 2, 4, 5);
+INSERT INTO PRODUCT VALUES (20, 'Ballymaloe Mayo.png', '4star.jpg','ballymaloe Mayo', ' produces is  delicious relish for markets at home and abroad.', 'Allergy Information', 22.99 , 2.99 , '', 2, 4, 5);
+INSERT INTO PRODUCT VALUES (21, 'Chili Cone.png', '4star.jpg','chili cone', 'Made out of fresh corn.', 'Allergy Information', 22.99 , 2.99 , '', 2, 4, 5);
+
+
+INSERT INTO PRODUCT VALUES (22, 'PearMango.png', '4star.jpg','pearmango', 'A fresh and fiery relish made by chef Declan& using only the perfect jalapeño sweets.. ', 'Allergy Information', 36.99 , 2.99 , 'Hot', 2, 4, 6);
+INSERT INTO PRODUCT VALUES (23, 'Biscuits.png', '4star.jpg','biscuits', 'A cool contrast to the fire. Just flour and water - no salt, no anything. Flame-baked in a flash, for a toasty finish. ', 'Allergy Information', 36.99 , 2.99 , '', 2, 4, 6);
+INSERT INTO PRODUCT VALUES (24, 'MilkChocolate.png', '4star.jpg','milkchoclate', 'Great Taste Awards - 3 Star, 2013', 'Allergy Information', 36.99 , 2.99 , '', 2, 4, 6);
+
+
+INSERT INTO PRODUCT VALUES (25, 'Fresh FishMeat.png', '4star.jpg','fresh fish', '1 pcs Per 500gm Salmons are rich and delicate with oily flavor with every mouthful.', 'Allergy Information', 22.99 , 2.99 , '', 2, 4, 7);
+INSERT INTO PRODUCT VALUES (26, 'Small ScaleFish.png', '4star.jpg','small scalefish', '2 -3 pcs Per 500gm The mild sweetness and firm texture make the Tilapia fish very popular with Asian food restaurants.', 'Allergy Information', 22.99 , 2.99 , 'Hot', 2, 4, 7);
+INSERT INTO PRODUCT VALUES (115, 'Fresh Crayfish.png', '4star.jpg','fresh crayfish', 'Their exquisite taste makes them an excellent addition to many dishes.This delicious seafood is packed with high-quality natural protein!', 'Allergy Information', 36.99 , 2.99 , '', 2, 4, 8);
+
+
+INSERT INTO PRODUCT VALUES (28, 'Dungeness Crab.png', '4star.jpg','dungness crab', 'Arriving whole and live, they require shucking, but it’s not too complicated a job to get to that delicate, soft meat inside', 'Allergy Information', 36.99 , 2.99 , 'Recommended', 2, 4, 8);
+INSERT INTO PRODUCT VALUES (29, 'Lobster.png', '4star.jpg','lobster', 'Caught wild and frozen within hours of catching.Pure, fresh and organic.', 'Allergy Information', 36.99 , 2.99 , 'Hot', 2, 4, 8);
+INSERT INTO PRODUCT VALUES (30, 'Jumbo Prawns.png', '4star.jpg','jumbo prawns', 'Delicious Indian Ocean variety.Caught wild and frozen within hours of catching. Pure, fresh and organic.', 'Allergy Information', 36.99 , 2.99 , '', 2, 4, 8);
 
 
 /*INSERT INTO PRODUCT VALUES (1, 'Strawberries.png', '4star.jpg','strawberries', 'Is lovely for your smoothies, jams or baking.', 'Allergy Information', 8.99 , 2.99 , 'Recommended', 2, 4, 1);
@@ -346,8 +343,8 @@ DROP TABLE PASSWORD_RESET CASCADE CONSTRAINT;
 
 CREATE TABLE PASSWORD_RESET(
 	TOKEN VARCHAR2(255),
-    FK1_User_ID	INTEGER NOT NULL,
-    VALID_TILL TIMESTAMP
+    /*VALID_TILL TIMESTAMP,*/
+    FK1_User_ID	INTEGER NOT NULL
 );
 ALTER TABLE PASSWORD_RESET ADD CONSTRAINT FK1_RESET_TO_USER FOREIGN KEY(FK1_User_ID) REFERENCES user_master(User_ID) ON DELETE CASCADE;
 
