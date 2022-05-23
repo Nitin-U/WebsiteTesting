@@ -64,7 +64,40 @@ CREATE OR REPLACE TRIGGER trig_VOUCHER_pk
     WHEN(new.VOUCHER_ID IS NULL)
     BEGIN
         SELECT seq_VOUCHER_ID.nextval INTO :new.VOUCHER_ID FROM dual;
-    END;    
+    END;
+    /
+--------------------------------------------------------------------------------
+ 
+ /*
+CREATE SEQUENCE seq_ORDER_ID
+    START WITH 100
+    INCREMENT BY 1;
+
+CREATE OR REPLACE TRIGGER trig_ORDERS_pk
+    BEFORE INSERT ON ORDERS
+    FOR EACH ROW
+    WHEN(new.ORDER_ID IS NULL)
+    BEGIN
+        SELECT seq_ORDER_ID.nextval INTO :new.ORDER_ID FROM dual;
+    END;
+    /
+*/   
+
+--------------------------------------------------------------------------------
+    
+CREATE SEQUENCE seq_ORDER_PROD_ID
+    START WITH 100
+    INCREMENT BY 1;
+
+CREATE OR REPLACE TRIGGER trig_ORDER_PRODUCT_pk
+    BEFORE INSERT ON ORDER_PRODUCT
+    FOR EACH ROW
+    WHEN(new.ORDER_PROD_ID IS NULL)
+    BEGIN
+        SELECT seq_ORDER_PROD_ID.nextval INTO :new.ORDER_PROD_ID FROM dual;
+    END;     
+    /
+    
     
     
    

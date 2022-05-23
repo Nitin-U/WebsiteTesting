@@ -99,14 +99,14 @@ elseif ($_SESSION['role']!='customer')
     background-color: #1F2130;
   }
 
-  a.btn.btn-purchase{
+  button.btn.btn-purchase{
     color: #fff;
     background-color: #F48037;
     border-color: #F48037;
     transition: .4s;
   }
 
-  a.btn.btn-purchase:hover{
+  button.btn.btn-purchase:hover{
     color: #fff;
     background-color: #1F2130;
     border-color: #1F2130;
@@ -394,13 +394,18 @@ elseif ($_SESSION['role']!='customer')
                 <?php $grandTotal = $sub_total - $discount;?>
                 <dd class="text-right text-dark b ml-3"><strong>$ <?php echo $grandTotal ?></strong></dd>
               </dl>
+              <?php $_SESSION['grandTotal'] = $grandTotal;?>
               <form action="delete.php" method="POST">
 
                 <button type="submit" href="#" class="btn btn-deleteall btn-main" data-abc="true" name="deleteBtn" onclick="return confirm('Are you sure you want empty whole cart?')"> Delete All </button> 
 
               </form> 
 
-              <a href="collection.php?total=<?php echo $grandTotal ?>" class="btn btn-out btn-dark btn-purchase btn-main mt-2" data-abc="true">Proceed</a>
+              <form action="collection.php" method="POST">
+                <input type="hidden" name="grandtotal" value="<?php echo $grandTotal; ?>">
+
+                <button href="#" type="submit" class="btn btn-out btn-dark btn-purchase btn-main mt-2" data-abc="true">Proceed</button>
+              </form>
               <!-- <div class="mt-2" id="paypal-payment-button">
                 
               </div> -->
