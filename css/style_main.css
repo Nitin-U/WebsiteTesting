@@ -117,13 +117,23 @@ i.fas.fa-shopping-cart:hover{
   color: #F37F37;
 }
 
-i.fa.fa-heart{
+/*i.fa.fa-heart{
   color: #fff;
   transition: .4s;
   font-size: 17px;
 }
 
 i.fa.fa-heart:hover{
+  color: #F37F37;
+}*/
+
+i.fa.fa-user{
+  color: #fff;
+  transition: .4s;
+  font-size: 17px;
+}
+
+i.fa.fa-user:hover{
   color: #F37F37;
 }
 
