@@ -110,7 +110,7 @@ $_SESSION['cart_count']=$row['QUANTITYTOTAL'];
 									</div>
 
 									<div class="col-6 text-left">
-										<a href=""><i class="fa fa-user ml-2 mr-2"></i></a>
+										<a href="wishlist.php"><i class="fa fa-heart ml-2 mr-2"></i></a>
 									</div>
 								</div>
 							</div>
@@ -162,7 +162,7 @@ $_SESSION['cart_count']=$row['QUANTITYTOTAL'];
 				    			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 				    				<?php if ($_SESSION['role']=='customer') { ?>
 				    					<a class="dropdown-item nav-link" href="customer_profile_setting.php">Profile</a>
-				    					<a class="dropdown-item nav-link" href="#">Wishlist</a>
+				    					<!-- <a class="dropdown-item nav-link" href="wishlist.php">Wishlist</a> -->
 				    				<?php } ?> 
 
 				    				<?php if ($_SESSION['role']=='trader') { ?>

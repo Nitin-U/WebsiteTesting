@@ -146,7 +146,7 @@
 
 		if($type == null) 
 		{
-			$error_type=  "Please select your shop type";
+			$error_type=  "Please enter your shop type";
 			$error++;
 		}
 

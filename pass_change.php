@@ -1,3 +1,9 @@
+<style type="text/css">
+	.error{
+      color: red;
+      font-style: italic;
+    }
+</style>
 <?php
 	include "crud/connection.php";
 	if(isset($_GET['token']) && isset($_GET['id']))
@@ -24,8 +30,20 @@ if(isset($_POST['submit']))
 {
 	$newpass=$_POST['newpass'];
 	$conpass=$_POST['conpass'];
+	$error = 0;
 
-	if($newpass==$conpass)
+	if ($newpass == null) 
+	{
+		$error_newpass = "Please enter your new password";
+		$error++;
+	}
+	if ($conpass != $newpass) 
+	{
+		$error_conpass = "Password did not match";
+		$error++;
+	}
+
+	if($error==0)
 	{
 		$newpass = password_hash($newpass,  
 	          PASSWORD_DEFAULT);
@@ -35,10 +53,10 @@ if(isset($_POST['submit']))
 		$_SESSION['passmessage']="Password changed successfully";
 		header('Location: login.php');
 	}
-	else
-	{
-		$_SESSION['failmessage']="New password and confirm password donot match";
-	}
+	// else
+	// {
+	// 	$_SESSION['failmessage']="New password and confirm password donot match";
+	// }
 
 }
 include "header.php";
@@ -57,12 +75,16 @@ include "header.php";
 
 					<div class="form-group row">
 						<label for="staticEmail" class="col-lg-3 col-md-2 col-sm-12">New Password</label>
-						<div class="col-lg-9 col-md-10 col-sm-12"><input type="text" name="newpass" class="form-control" id="staticUsername" placeholder="Enter new password" required=""></div>
+						<div class="col-lg-9 col-md-10 col-sm-12"><input type="text" name="newpass" class="form-control" id="staticUsername" placeholder="Enter new password">
+							<?php if (isset($error_newpass)) echo '<div class="error mt-2">'.$error_newpass.'</div>';?>
+						</div>
 					</div>
 
 					<div class="form-group row">
 						<label for="staticEmail" class="col-lg-3 col-md-2 col-sm-12">Confirm Password</label>
-						<div class="col-lg-9 col-md-10 col-sm-12"><input type="text" name="conpass" class="form-control" id="staticUsername" placeholder="Confirm new password" required=""></div>
+						<div class="col-lg-9 col-md-10 col-sm-12"><input type="text" name="conpass" class="form-control" id="staticUsername" placeholder="Confirm new password">
+							<?php if (isset($error_conpass)) echo '<div class="error mt-2 mb-2">'.$error_conpass.'</div>';?>
+						</div>
 					</div>
 					<!-- <input type="hidden" name="id" value ="<?php echo $_GET['id']?>"> -->
 

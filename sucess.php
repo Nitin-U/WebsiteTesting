@@ -7,12 +7,17 @@
 	date_default_timezone_set('Asia/Kathmandu');
 	//$today = date("d-m-Y H:i:s");
 	$today = date('d-m-Y H:i:s');
-	echo $today;  
+	//echo $today;  
 
 	$chooseweek = $_COOKIE["chooseweek"];
 	$chooseday = $_COOKIE["chooseday"];
 	$choosetime = $_COOKIE["choosetime"];
 	$grandtotal = $_COOKIE["grandtotal"];
+	if (isset($_SESSION['discount'])) {
+        $discount = $_SESSION['discount'];
+    }else{
+    	$discount = 0;
+    }
 	
 /*putting order_id as tokens in ORDERS table*/	
 	$token = openssl_random_pseudo_bytes(3);
@@ -21,10 +26,9 @@
 		
 
 /*orders insertin query*/
-	$orders_query = "INSERT INTO ORDERS (ORDER_ID ,COLLECTION_WEEK, COLLECTION_DAY, COLLECTION_TIME, PAYMENT, ORDER_DATE, FK1_USER_ID) VALUES ('$token' ,'$chooseweek', '$chooseday', '$choosetime', $grandtotal, to_date('".$today."','dd-mm-yy hh24:mi:ss'), ".$_SESSION['id'].")";
-	//echo $orders_query;
+	$orders_query = "INSERT INTO ORDERS (ORDER_ID ,COLLECTION_WEEK, COLLECTION_DAY, COLLECTION_TIME, PAYMENT, DISCOUNT, ORDER_DATE, FK1_USER_ID) VALUES ('$token' ,'$chooseweek', '$chooseday', '$choosetime', $grandtotal, $discount, to_date('".$today."','dd-mm-yy hh24:mi:ss'), ".$_SESSION['id'].")";
+	echo $orders_query;
 	$orders_result = oci_parse($conn, $orders_query);
-
 	oci_execute($orders_result);
 
 
@@ -48,7 +52,7 @@
 
 /*order_product insertin query*/
 		$order_prod_query = "INSERT INTO ORDER_PRODUCT (QUANTITY, PRODUCT_NAME, PRODUCT_PRICE, FK1_ORDER_ID, FK2_PRODUCT_ID) VALUES ('$quantity_cart', '$product_name', '$product_price', '$token', $product_id)";
-		//echo $order_prod_query;
+		echo $order_prod_query;
 		$order_prod_result = oci_parse($conn, $order_prod_query);
 		oci_execute($order_prod_result);
 
@@ -57,6 +61,7 @@
 	$empty_cart = "DELETE FROM cart WHERE FK1_USER_ID =" .$_SESSION['id'];
 	$empty_cart_result = oci_parse($conn, $empty_cart);
 	oci_execute($empty_cart_result);
+	$_SESSION['discount'] = 0;
 
 	$_SESSION['passmessage'] = "Your order was placed sucessfully. Here is the receipt <a href='invoice.php?id=".$token."' target='_blank' rel='noopener noreferrer'>Here</a>";
 	header("Location: index.php?id=".$token);	

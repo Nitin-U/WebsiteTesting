@@ -67,11 +67,11 @@
 		</a>
 	</div>
 
-	<!------------------------------------------------------------------------------------>
+<!------------------------------------------------------------------------------------>
 
 
 	
-	<!------------------------------------------------------------------------------------>
+<!------------------------------------------------------------------------------------>
 	<div class="container" id="headings-padding">
 		<div class="row">
 			<div class="col-12 text-center">
@@ -90,7 +90,7 @@
 			<div class="col-12 m-0 p-0">
 				<div class="col-6 ml-auto m-0 p-0">
 					<div class="col-lg-3 col-md-6 ml-auto m-0 p-0">
-						<a href="#" style="color: #000;"><p class="view-container text-right">View More <i class="fas fa-arrow-right"></i> </p></a>
+						<a href="product.php" style="color: #000;"><p class="view-container text-right">View More <i class="fas fa-arrow-right"></i> </p></a>
 					</div>	
 				</div>
 			</div>
@@ -134,50 +134,7 @@
 			</div>
 		</section>  
 		
-		<!---------------------------------------------------------------------------------------->
-<!--div class="jss col-12 text-center" id="headings-padding">
-		<h1>Shop by Traders</h1>
-		<hr class="col-1">
-</div>
-
-<div class="container">
-  <div class="col-12">
-  	<div class="row">
-
-  		
-    
-      <div class="col-lg-2 col-md-4 col-sm-6 mx-auto m-4" id="show_bg_2">
-        <a href="/news/athletes/katy-whittaker-6701"><img class="d-block mx-auto img-fluid" src="img/Grocery.png"></a>
-      </div>
-
-      <div class="col-lg-2 col-md-4 col-sm-6 mx-auto m-4">
-        <a href="/news/athletes/katy-whittaker-6701"><img class="d-block mx-auto img-fluid" src="img/Meat.png"></a>
-      </div>
-
-      <div class="col-lg-2 col-md-4 col-sm-6 mx-auto m-4">
-        <a href="/news/athletes/katy-whittaker-6701"><img class="d-block mx-auto img-fluid" src="img/delicatessen.png"></a>
-      </div>
-
-      <div class="col-lg-2 col-md-4 col-sm-6 mx-auto m-4">
-        <a href="/news/athletes/katy-whittaker-6701"><img class="d-block mx-auto img-fluid" src="img/bakery.png"></a>
-      </div>
-
-      <div class="col-lg-2 col-md-4 col-sm-6 mx-auto m-4">
-        <a href="/news/athletes/katy-whittaker-6701"><img class="d-block mx-auto img-fluid" src="img/fish.png"></a>
-      </div>
-
-
-
-
-
-
-    </div>
-      
-      
-    </div>
-
-</div-->
-
+<!---------------------------------------------------------------------------------------->
 
 <div class="jss col-12 text-center" id="headings-padding">
 	<h1>Shop by Traders</h1>
@@ -185,84 +142,32 @@
 </div>
 <div class="container">
 	<div class="row pt-4">
-		<div class="col-lg-2 col-md-4 col-sm-6 mx-lg-auto ">
-			<div class="box">
-				<img src="img/Meat.png">
-				<div class="box-content">
-					<div class="inner-content">
-						<h3 class="title">Butcher</h3>
-						<span class="post">Cleckhudderfax</span>
-						<ul class="icon">
-							<li><a href="#"><i class="fa-solid fa-circle-info"></i></a></li>
-						</ul>
+		<?php 
+
+		$query="SELECT * FROM user_master WHERE ROLE = 'trader'";
+		$result = oci_parse($conn,$query);
+		oci_execute($result);
+		while($row = oci_fetch_assoc($result))
+		{ 
+			?>
+			<div class="col-lg-2 col-md-4 col-sm-6 mx-lg-auto ">
+				<div class="box">
+					<img src="img/<?php echo $row['SHOP_IMAGE'] ?>">
+					<div class="box-content">
+						<div class="inner-content">
+							<h3 class="title"><?php echo $row['NAME']; ?></h3>
+							<span class="post">Cleckhudderfax</span>
+							<ul class="icon">
+								<li><a href="product.php?catg=<?php echo $row['USER_ID']?>"><i class="fa-solid fa-circle-info"></i></a></li>
+							</ul>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-
-		<div class="col-lg-2 col-md-4 col-sm-6 mx-lg-auto">
-			<div class="box">
-				<img src="img/delicatessen.png">
-				<div class="box-content">
-					<div class="inner-content">
-						<h3 class="title">Delicatessen</h3>
-						<span class="post">Cleckhudderfax</span>
-						<ul class="icon">
-							<li><a href="#"><i class="fa-solid fa-circle-info"></i></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="col-lg-2 col-md-4 col-sm-6 mx-lg-auto">
-			<div class="box">
-				<img src="img/Fish.png">
-				<div class="box-content">
-					<div class="inner-content">
-						<h3 class="title">FishMonger</h3>
-						<span class="post">Cleckhudderfax</span>
-						<ul class="icon">
-							<li><a href="#"><i class="fa-solid fa-circle-info"></i></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="col-lg-2 col-md-4 col-sm-6 mx-lg-auto">
-			<div class="box">
-				<img src="img/Grocery.png">
-				<div class="box-content">
-					<div class="inner-content">
-						<h3 class="title">GreenGrocer</h3>
-						<span class="post">Cleckhudderfax</span>
-						<ul class="icon">
-							<li><a href="#"><i class="fa-solid fa-circle-info"></i></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="col-lg-2 col-md-4 col-sm-6 mx-lg-auto">
-			<div class="box">
-				<img src="img/bakery.png">
-				<div class="box-content">
-					<div class="inner-content">
-						<h3 class="title">Bakery</h3>
-						<span class="post">Cleckhudderfax</span>
-						<ul class="icon">
-							<li><a href="#"><i class="fa-solid fa-circle-info"></i></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		
+			</div>	
+		<?php } ?>	
 	</div>
 </div>
+
 
 <!---------------------------------------------------------------------------------------->
 <div class="container" id="headings-padding">
@@ -281,7 +186,7 @@
 		<div class="col-12 m-0 p-0">
 			<div class="col-6 ml-auto m-0 p-0">
 				<div class="col-3 ml-auto m-0 p-0">
-					<a href="#" style="color: #000;"><p class="view-container text-right">View More <i class="fas fa-arrow-right"></i> </p></a>
+					<a href="product.php" style="color: #000;"><p class="view-container text-right">View More <i class="fas fa-arrow-right"></i> </p></a>
 				</div>	
 			</div>
 		</div>

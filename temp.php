@@ -64,6 +64,15 @@ elseif ($_SESSION['role']!='customer')
     width: 35%;
   }
 
+  .fa-trash{
+    color: #F48037;
+    transition: .4s;
+  }
+  .fa-trash:hover {
+    color: #1F2130;
+    transition: .4s;
+  }
+
   button.btn.btn-update{
     font-size: 13px;
     height: 35px;
@@ -311,7 +320,7 @@ elseif ($_SESSION['role']!='customer')
                       <div class="p-2">
                         <img src="img/food/<?php echo trim($prodRow['PRODUCT_IMAGE']); ?>" style="width: 70px; height: 70px;" alt="" class="img-fluid rounded shadow-sm">
                         <div class="ml-3 d-inline-block align-middle">
-                          <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle" id="cart-item-heading"><?php echo $prodRow['PRODUCT_NAME']; ?></a></h5><span class="text-muted stock-heading font-weight-normal font-italic d-block">Stock: Status</span>
+                          <h5 class="mb-0"> <a href="productdescription.php?id=<?php echo $prodRow['PRODUCT_ID'];?>" class="text-dark d-inline-block align-middle" id="cart-item-heading"><?php echo $prodRow['PRODUCT_NAME']; ?></a></h5><span class="text-muted stock-heading font-weight-normal font-italic d-block">Stock: Status</span>
                         </div>
                       </div>
                     </th>
@@ -333,11 +342,11 @@ elseif ($_SESSION['role']!='customer')
                     <td class="border-0 align-middle col-2">
                       <div class="col-12">
                         <div class="row">
-                          <div class="col-6">
+                          <!-- <div class="col-6">
                             <a href="#" class="text-dark">
                               <i class="fa-solid fa-heart mr-4"></i>
                             </a>
-                          </div>
+                          </div> -->
                           <div class="col-6">
                             <a href="delete.php?ID=<?php echo $row['ID'] ?>" onclick="return confirm('Are you sure you want to delete this item?')" class="text-dark">
                               <i class="fa fa-trash"></i>

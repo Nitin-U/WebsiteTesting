@@ -31,11 +31,8 @@ if(!$row)
     $date_time_arr = explode (" ", $date); 
     $time=explode(".", $date_time_arr[1]);
     //print_r($time);
-    $discount = 0;
-    if (isset($_SESSION['discount'])) {
-        $discount = $_SESSION['discount'];
-    }
-
+    //$discount = 0;
+    $discount = $row['DISCOUNT'];
 
     ?>
 
@@ -57,6 +54,8 @@ if(!$row)
             <span><?php echo $_SESSION['username']; ?></span>
 
             <span>Date Issued : <?php echo $date_time_arr[0]." ".$time[0].":".$time[1].":".$time[2]; ?></span>
+
+            <span>Collection Slot : <?php echo $row['COLLECTION_DAY']; ?>, <?php echo $row['COLLECTION_TIME']; ?></span>
         </div>
 
         <div class="invoice_table shadow">
@@ -69,6 +68,7 @@ if(!$row)
                 </tr>
 
                 <?php
+
 
                 $select_order_product = "SELECT * FROM ORDER_PRODUCT WHERE FK1_ORDER_ID= '$id'";
                 $product_result = oci_parse($conn, $select_order_product);

@@ -47,7 +47,7 @@ else{
 			oci_execute($result3);
 			//echo $insert_product;
 
-			$message[] = 'product added to cart';
+			//$message[] = 'product added to cart';
 			$_SESSION['passmessage']="Product added to cart successfully"; 
 
 		}

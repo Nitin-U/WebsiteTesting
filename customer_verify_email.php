@@ -16,8 +16,8 @@ $html='
 </style>
 <div class = "container">
 	<h1 class="heading">Trinit-E-Mart</h1>
-	<p class="parag1"><b><i>Click here to reset your password</i><b><p>
-	<p><a href="http://localhost/Website%20testing/verify_customer_query.php?token='.$token.'&id='.$id.'">Click here to verify</a></p>
+	<p class="parag1"><b><i>Click here to verify your account</i><b><p>
+	<p><a href="http://localhost/Website%20testing/verify_customer_query.php?token='.$token.'&id='.$id.'">Here</a></p>
 </div>
 
 ';
