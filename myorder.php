@@ -18,6 +18,9 @@
 	?>
 
 <style>
+  .table.table-bordered{
+    margin-bottom: 300px;
+  }
   #threadd{
     background-color: orange;
   }
@@ -36,43 +39,38 @@
     <table class="table table-bordered mt-10" id="xyz">
         <thead class="thead-dark" id="threadd">
             <tr>
-                <th scope="col">Order</th>
-                <th scope="col">Date</th>
-                <th scope="col">Items</th>
-                <th scope="col">Collection SLot</th>
-                <th scope="col">Amount</th>
+                <th scope="col">S.N</th>
+                <th scope="col">Order_Id</th>
+                <th scope="col">Order Date</th>
+                <th scope="col">Slot</th>
+                <th scope="col">Receipt</th>
                 <!-- <th scope="col">Status</th>
                 <th scope="col">Action</th> -->
             </tr>
         </thead>
         <tbody>
+
+<?php
+  $select_orders = "SELECT * FROM ORDERS WHERE FK1_USER_ID=" .$_SESSION['id'];
+  $orders_result = oci_parse($conn, $select_orders);
+  oci_execute($orders_result);
+  while ($row = oci_fetch_assoc($orders_result)) 
+  {
+    $date = $row['ORDER_DATE']; 
+    $date_time_arr = explode (" ", $date); 
+    $time=explode(".", $date_time_arr[1]);
+?>
+
             <tr>
                 <th scope="row">1</th>
-                <td>yyyy/mm/dd</td>
-                <td>10</td>
-                <td>yyyy/mm/dd <br> Sunday</td>
-                <td>10.00</td>
-                <!-- <td>paid</td>
-                <td>..</td> -->
+                <td><?php echo $row['ORDER_ID']; ?></td>
+                <td><?php echo $date_time_arr[0]; ?></td>
+                <td><?php echo $row['COLLECTION_TIME']; ?><br><?php echo $row['COLLECTION_DAY']; ?></td>
+                <td><a href="invoice.php?id=<?php echo $row['ORDER_ID']; ?>" target='_blank' rel='noopener noreferrer'>Click</a></td>
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>yyyy/mm/dd</td>
-                <td>10</td>
-                <td>yyyy/mm/dd <br> Sunday</td>
-                <td>10.00</td>
-                <!-- <td>paid</td>
-                <td>..</td> -->
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>yyyy/mm/dd</td>
-                <td>10</td>
-                <td>yyyy/mm/dd <br> Sunday</td>
-                <td>10.00</td>
-                <!-- <td>paid</td>
-                <td>..</td> -->
-            </tr>
+
+<?php } ?>
+
         </tbody>
 
     </table>
