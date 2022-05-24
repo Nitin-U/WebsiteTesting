@@ -15,6 +15,14 @@ include "crud/connection.php";
   $row = oci_fetch_assoc($result);
   $image = $row['PRODUCT_IMAGE'];
 
+    $wishlist_product="SELECT * FROM WISHLIST WHERE FK1_PRODUCT_ID = $id AND FK2_USER_ID =" .$_SESSION['id'];
+    $wishlist_Presult = oci_parse($conn, $wishlist_product);
+    oci_execute($wishlist_Presult);
+    $heart="heart-white";
+    if($wishRow=oci_fetch_assoc($wishlist_Presult))
+    {
+      $heart="heart-red";
+    }
   ?>
 
   <style>
@@ -50,9 +58,15 @@ include "crud/connection.php";
     input.number_input{
       width: 10%;
     }
-    .fa-heart{
+    .heart-red{
       font-size: 50px;
       color: #DB1F64;
+    }
+    .heart-white
+    {
+      font-size: 50px;
+      color: #fff;
+      text-shadow: 0 0 3px #FF0000, 0 0 5px #DB1F64;
     }
     /*div.zoom {
       background-image: url(<?php echo '$image'?>);
@@ -102,7 +116,7 @@ include "crud/connection.php";
           <div class="container mx-3 col-12">
             <div class="row">
               <a href="addtocart.php?prod=<?php echo $row['PRODUCT_ID']; ?>&" type="submit" name="update" class="btn btn-cart col-10 mt-3" id="update-btn" style="padding: 15px;">Add to Cart</a>
-              <i class="fa-solid fa-heart col-2 mt-3"></i>
+              <a href="wishlist_query.php?id=<?php echo $row['PRODUCT_ID']; ?>"><i class="fa-solid fa-heart <?php echo $heart; ?> col-2 mt-3"></i></a>
             </div>
           </div>
 
