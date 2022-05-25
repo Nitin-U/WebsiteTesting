@@ -8,15 +8,13 @@
   if(isset($_POST['Submitbtn'])){ 
       $name=$_POST['name'];
       $price=$_POST['price'];
-      $discount=$_POST['discount'];
-      //$producttype=$_POST['prodtype'];
+      $quantity=$_POST['quantity'];
       $productdescription=$_POST['proddesc'];
       $allergyinformation=$_POST['allergyinfo'];
-      $minimumquantity=$_POST['minquantity'];
-      $maximumquantity=$_POST['maxquantity'];
       $productimage=$_POST['prodimg'];
-      $rating=$_POST['ratimg'];
-      $shopType = isset($_POST['shopType']);
+      
+      $stock = "Stock";
+      $rating= "4.5star.jpg";
       $error = 0;
     
       if(strlen($name) < 5)
@@ -37,6 +35,11 @@
       if($price == null) 
       {
         $error_price=  "Please enter the price";
+        $error++;
+      }
+      if($quantity == null) 
+      {
+        $error_quantity=  "Please enter the quantity";
         $error++;
       }
       if(strlen($productdescription) < 10)
@@ -61,57 +64,34 @@
         $error_allergy=  "Please enter the allergy information";
         $error++;
       }
-      if (!preg_match("/^[0-9]+(\.[0-9]{2})?$/", $minimumquantity)) {
-        $error_minimum=  "Please enter the numbers only"; 
-        $error++;
-      }
-      if($minimumquantity == null) 
-      {
-        $error_minimum=  "Please enter the minimum quantity";
-        $error++;
-      }
-      if (!preg_match("/^[0-9]+(\.[0-9]{2})?$/", $maximumquantity)) {
-        $error_maximum=  "Please enter the numbers only"; 
-        $error++;
-      }
-      if($maximumquantity == null) 
-      {
-        $error_maximum=  "Please enter the maximum quantity";
-        $error++;
-      }
+
       if($productimage == null) 
       {
         $error_image =  "Please upload your image";
         $error++;
       }
-      if($rating == null) 
-      {
-        $error_image =  "Please upload your image";
-        $error++;
-      }
 
-      if($shopType == null) 
+      if(!isset($_POST['shopType'])) 
       {
         $error_type=  "Please select the trader type";
         $error++; 
+      }else{
+        $shopType = $_POST['shopType'];
       } 
 
       if ($error == 0) 
       {
-        $query="INSERT INTO PRODUCT (PRODUCT_IMAGE, PRODUCT_RATING, PRODUCT_NAME, PRODUCT_DESC, ALLERGY_INFO, PRODUCT_PRICE, PRODUCT_DISCOUNT, MINIMUM_QUANTITY, MAXIMUM_QUANTITY, FK1_SHOP_ID) values('$productimage', '$rating', '$name', '$productdescription', '$allergyinformation', '$price', '$discount', '$minimumquantity' , '$maximumquantity', '$shopType')";
+        $query="INSERT INTO PRODUCT (PRODUCT_IMAGE, PRODUCT_RATING, PRODUCT_NAME, PRODUCT_DESC, ALLERGY_INFO, PRODUCT_PRICE, QUANTITY, STOCK, FK1_SHOP_ID) values('$productimage', '$rating', '$name', '$productdescription', '$allergyinformation', '$price', '$quantity', '$stock', $shopType)";
 
         if($result = oci_parse($conn,$query));
         {
           oci_execute($result);
           $name = "";
           $price = "";
-          $discount = "";
+          $quantity = "";
           $productdescription = "";
           $allergyinformation = "";
-          $minimumquantity = "";
-          $maximumquantity = "";
           $productimage = "";
-          $rating = "";
           $shopType = "";
           $_SESSION['passmessage'] = "Product added successfully";
         }
@@ -188,8 +168,9 @@
           </div>
 
           <div class="form-group col-md-6 col-6">
-            <label for="input">Discount <span>*</span></label>
-            <input type="Discount" name="discount" class="form-control" value="<?php if(isset($discount)) echo $discount ?>">
+            <label for="input">Quantity <span>*</span></label>
+            <input type="number" name="quantity" class="form-control" value="<?php if(isset($quantity)) echo $quantity ?>" min="1" max="1000">
+            <div class="mb-3"><?php if (isset($error_quantity)) echo '<div class="error">'.$error_quantity.'</div>';?> </div>
           </div>
         </div>
 
@@ -197,7 +178,7 @@
         <input type="text" id="pType" name="prodtype" required><br-->
 
         <label for="pDescription">Product Description <span>*</span></label><br>
-        <textarea id="message" name="proddesc" rows="3"><?php if(isset($description)) echo $description ?></textarea>
+        <textarea id="message" name="proddesc" rows="3"><?php if(isset($productdescription)) echo $productdescription ?></textarea>
         <div class="mb-3"><?php if (isset($error_description)) echo '<div class="error">'.$error_description.'</div>';?> </div>
         <!--div class="mb-3">abc</div-->
 
@@ -205,33 +186,12 @@
         <textarea id="message" name="allergyinfo" rows="2"><?php if(isset($allergyinformation)) echo $allergyinformation ?></textarea>
         <div class="mb-3"><?php if (isset($error_allergy)) echo '<div class="error">'.$error_allergy.'</div>';?> </div>
 
-        <div class="row">
-          <div class="form-group col-md-6 col-6">
-            <label for="input">Minimum Quantity <span>*</span></label>
-            <input type="Quantiy" name="minquantity" class="form-control" value="<?php if(isset($minimumquantity)) echo $minimumquantity ?>">
-            <div class="mb-3"><?php if (isset($error_minimum)) echo '<div class="error">'.$error_minimum.'</div>';?> </div>
-          </div>
-          <div class="form-group col-md-6 col-6">
-            <label for="input">Maximum Quantity <span>*</span></label>
-            <input type="Quantity" name="maxquantity" class="form-control" value="<?php if(isset($maximumquantity)) echo $maximumquantity ?>">
-            <div class="mb-3"><?php if (isset($error_maximum)) echo '<div class="error">'.$error_maximum.'</div>';?> </div>
-          </div>
-        </div>
 
         <label for="input">Product <span>*</span></label>
         <div class="input-group mb-3">
           <div class="custom-file">
             <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
             <input type="file" name="prodimg" class="custom-file-input" id="inputGroupFile01" value="<?php if(isset($productimage)) echo $productimage ?>">
-          </div>
-        </div>
-        <div class="mb-3"><?php if (isset($error_image)) echo '<div class="error">'.$error_image.'</div>';?> </div>
-
-        <label for="input">Rating <span>*</span></label>
-        <div class="input-group mb-3">
-          <div class="custom-file">
-            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-            <input type="file" name="ratimg" class="custom-file-input" id="inputGroupFile01" value="<?php if(isset($ratimg)) echo $ratimg ?>">
           </div>
         </div>
         <div class="mb-3"><?php if (isset($error_image)) echo '<div class="error">'.$error_image.'</div>';?> </div>

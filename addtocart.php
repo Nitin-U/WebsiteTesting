@@ -1,5 +1,14 @@
 <?php
 include "crud/connection.php";
+
+$id = $_GET['prod'];
+//echo $id;
+
+$select_product = "SELECT * FROM PRODUCT where PRODUCT_ID =" .$id;
+$product_result = oci_parse($conn, $select_product);
+oci_execute($product_result);
+$row = oci_fetch_assoc($product_result);
+
 if (trim($_SESSION['id'])==null)
 {
 	header("Location: " . $_SERVER["HTTP_REFERER"]);
@@ -10,7 +19,12 @@ elseif ($_SESSION['role']!='customer') {
 	$_SESSION['failmessage']="You need to be logged in as customer.";
 }
 else{
-	if (isset($_GET['prod'])) 
+	if (isset($_GET['prod']) && $row['STOCK']=='Out of Stock') 
+	{
+		$_SESSION['failmessage'] = "This item is currently out of stock";
+		header("Location: " . $_SERVER["HTTP_REFERER"]);
+	}
+	elseif (isset($_GET['prod'])) 
 	{
 		
 		$product_quantity = 1;

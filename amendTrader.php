@@ -24,7 +24,7 @@ if (isset($_GET['tradID']))
 elseif (isset($_GET['trad_deac_ID'])) 
 {
 
-	$update_status = "UPDATE user_master SET STATUS = 'Deactivate' where USER_ID =" .$_GET['trad_deac_ID'];
+	$update_status = "UPDATE user_master SET STATUS = 'Deactive' where USER_ID =" .$_GET['trad_deac_ID'];
 	//echo $update_status;
 	$status_result = oci_parse($conn, $update_status);
 	oci_execute($status_result);

@@ -68,9 +68,9 @@
     $phone = $_POST['phone'];
     $error = 0;
 
-    if (strlen($shop < 4)) 
+    if (strlen($shop) < 5) 
     {
-      $error_shop = "Shop name must be greater than 4 characters";
+      $error_shop = "Shop name must be greater than five characters";
       $error++;
     }
     if ($shop == null) 
@@ -79,9 +79,9 @@
       $error++;
     }
 
-    if (strlen($type < 4)) 
+    if (strlen($type) < 5) 
     {
-      $error_type = "Name must be greater than 4 characters";
+      $error_type = "Name must be greater than five characters";
       $error++;
     }
     if ($type == null) 
@@ -90,9 +90,9 @@
       $error++;
     }
 
-    if (strlen($address < 4)) 
+    if (strlen($address) < 5) 
     {
-      $error_address = "Address must exceed 4 characters";
+      $error_address = "Address must exceed five characters";
       $error++;
     }
 

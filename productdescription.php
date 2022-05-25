@@ -14,15 +14,20 @@ include "crud/connection.php";
   oci_execute($result);
   $row = oci_fetch_assoc($result);
   $image = $row['PRODUCT_IMAGE'];
-
+  $heart="heart-white";
+  if (isset($_SESSION['id'])) 
+  {
     $wishlist_product="SELECT * FROM WISHLIST WHERE FK1_PRODUCT_ID = $id AND FK2_USER_ID =" .$_SESSION['id'];
     $wishlist_Presult = oci_parse($conn, $wishlist_product);
     oci_execute($wishlist_Presult);
-    $heart="heart-white";
+    
     if($wishRow=oci_fetch_assoc($wishlist_Presult))
     {
       $heart="heart-red";
     }
+  }
+
+    
   ?>
 
   <style>
@@ -40,7 +45,7 @@ include "crud/connection.php";
       object-fit:cover;
       object-position: center;
       width:500px;
-      height:450px;
+      height:500px;
 
     }
     hr.head1 {
@@ -73,6 +78,7 @@ include "crud/connection.php";
       }*/
       div.zoom img:hover {
         opacity: 0;
+
       }
       div.zoom img {
         cursor: zoom-in;
@@ -108,6 +114,9 @@ include "crud/connection.php";
           </div>
           <div class="mx-3 text-justify">
             <p><?php echo $row['PRODUCT_DESC']; ?></p>
+          </div>
+          <div class="mx-3 text-justify">
+            <p class="allergy-info">Allergy info: <?php echo $row['ALLERGY_INFO']; ?></p>
           </div>
           <!--div class="mx-3">
             <label>Quantity</label>

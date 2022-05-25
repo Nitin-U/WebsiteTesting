@@ -71,7 +71,7 @@ include "header.php";
 					<tr>
 						<th scope="row"><a href="productdescription.php?id=<?php echo $prodrow['PRODUCT_ID']?>"><img src="img/food/<?php echo $prodrow['PRODUCT_IMAGE']; ?>" style="width: 80px; border-radius: 10px;"></a></th>
 						<td style="vertical-align: middle;"><?php echo ucwords($prodrow['PRODUCT_NAME']); ?></td>
-						<td style="vertical-align: middle;"><?php echo $prodrow['PRODUCT_PRICE']; ?></td>
+						<td style="vertical-align: middle;">£ <?php echo $prodrow['PRODUCT_PRICE']; ?></td>
 						<td style="vertical-align: middle;"><?php echo $prodrow['STOCK']; ?></td>
 						<td style="vertical-align: middle;"><a href="deleteWishlist.php?id=<?php echo $prodrow['PRODUCT_ID']; ?>" onclick="return confirm('Are you sure you want to remove this item from wishlist?')"><i class="fa-solid fa-trash text-white"></i></a></td>
 					</tr>

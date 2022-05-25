@@ -8,13 +8,10 @@
     if(isset($_POST['Submitbtn'])){ 
       $name=$_POST['name'];
       $price=$_POST['price'];
-      $discount=$_POST['discount'];
       $productdescription=$_POST['proddesc'];
       $allergyinformation=$_POST['allergyinfo'];
-      $minimumquantity=$_POST['minquantity'];
-      $maximumquantity=$_POST['maxquantity'];
+      $quantity=$_POST['quantity'];
       $productimage=$_POST['prodimg'];
-      $rating=$_POST['ratimg'];
       $shopType = isset($_POST['shopType']);
       $error = 0;
 
@@ -60,30 +57,7 @@
         $error_allergy=  "Please enter the allergy information";
         $error++;
       }
-      if (!preg_match("/^[0-9]+(\.[0-9]{2})?$/", $minimumquantity)) {
-        $error_minimum=  "Please enter the numbers only"; 
-        $error++;
-      }
-      if($minimumquantity == null) 
-      {
-        $error_minimum=  "Please enter the minimum quantity";
-        $error++;
-      }
-      if (!preg_match("/^[0-9]+(\.[0-9]{2})?$/", $maximumquantity)) {
-        $error_maximum=  "Please enter the numbers only"; 
-        $error++;
-      }
-      if($maximumquantity == null) 
-      {
-        $error_maximum=  "Please enter the maximum quantity";
-        $error++;
-      }
       if($productimage == null) 
-      {
-        $error_image =  "Please upload your image";
-        $error++;
-      }
-      if($rating == null) 
       {
         $error_image =  "Please upload your image";
         $error++;
@@ -160,7 +134,6 @@
       <a href="displayProduct.php">Display Products</a>
     </div>
     <a href="shop_trader.php">&nbsp;<i class="fa fa-shop" style="color:white;"></i> &nbsp; Shops</a>
-    <a href="discount.php">&nbsp;<i class="fa fa-percent" style="color:white;"></i> &nbsp; Discounts</a>
   </div>
 
   <?php
@@ -176,10 +149,6 @@
 
      while ($row = oci_fetch_assoc($displayproduct_result)) 
       { ?>
-        
-     
-
-  
 
 
   <div class="main">
@@ -196,8 +165,8 @@
             <input type="Price" class="form-control" name="price" value="<?php echo $row['PRODUCT_PRICE']; ?>">
           </div>
           <div class="form-group col-md-6 col-6">
-            <label for="input">Discount</label>
-            <input type="Discount" class="form-control" name="discount" value="<?php echo $row['PRODUCT_DISCOUNT']; ?>">
+            <label for="input">Quantity</label>
+            <input type="number" class="form-control" name="quantity" value="<?php echo $row['QUANTITY']; ?>" min="1" max="1000">
           </div>
         </div>
 
@@ -210,17 +179,6 @@
         <label for="aInformation">Allergy Information</label><br>
         <textarea id="message" rows="2" name="allergyinfo" value=""><?php echo $row['ALLERGY_INFO']; ?></textarea>
 
-        <div class="row">
-          <div class="form-group col-md-6 col-6">
-            <label for="input">Minimum Quantity<span>*</span></label>
-            <input type="Quantiy" class="form-control" name="minquantity" value="<?php echo $row['MINIMUM_QUANTITY']; ?>">
-          </div>
-          <div class="form-group col-md-6 col-6">
-            <label for="input">Maximum Quantity<span>*</span></label>
-            <input type="Quantity" class="form-control" name="maxquantity" value="<?php echo $row['MAXIMUM_QUANTITY']; ?>">
-          </div>
-        </div>
-
         <label for="input">Product<span>*</span></label>
         <div class="input-group mb-3">
           <div class="custom-file">
@@ -230,13 +188,6 @@
         </div>
 
         <label for="input">Rating<span>*</span></label>
-        <div class="input-group mb-3">
-          <div class="custom-file">
-            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-            <input type="file" class="custom-file-input" name="ratimg" id="inputGroupFile01" value="<?php echo $row['PRODUCT_PRICE']; ?>">
-          </div>
-        </div><br>
-
         <select id="form_need" class="form-control mb-5" name="shopType"  data-error="Please specify your need." >
                 <option value="" disabled>--Select Your Category--</option>
                 <?php

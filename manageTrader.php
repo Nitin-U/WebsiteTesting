@@ -106,9 +106,11 @@
 						?></i><?php echo $fetch_trader['STATUS']; ?></td>
 						<form>
 							<td>
-								<a href="amendTrader.php?tradID=<?php echo $fetch_trader['USER_ID'] ?>" class="btn	<?php if($fetch_trader['STATUS']=="Verified") echo "disabled"?>"><i class="fa-solid fa-check col-5"></i></a> 
+								<a href="amendTrader.php?tradID=<?php echo $fetch_trader['USER_ID'] ?>" class="btn	<?php if($fetch_trader['STATUS']=="Verified") echo "disabled"?>" onclick="return confirm('Are you sure you want to accept this trader?')"><i class="fa-solid fa-check col-5"></i></a> 
 
-								<a href="amendTrader.php?trad_deac_ID=<?php echo $fetch_trader['USER_ID'] ?>" onclick="return confirm('Are you sure you want to deactivate this trader?')"><i class="fas fa-ban"></i></a>
+								<a href="declineTrader.php?trad_decl=<?php echo $fetch_trader['USER_ID'] ?>" onclick="return confirm('Are you sure you want to decline this trader?')"><i class="fas fa-ban"></i></a>
+
+								<!-- <a href="amendTrader.php?trad_deac_ID=<?php echo $fetch_trader['USER_ID'] ?>" onclick="return confirm('Are you sure you want to deactivate this trader?')"><i class="fas fa-ban"></i></a> -->
 							</td>
 						</form>
 					</tr>

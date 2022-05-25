@@ -1,5 +1,5 @@
 <?php
-    include "crud/connection.php";
+include "crud/connection.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,11 +18,17 @@
             margin-bottom: 35px;    
         }
 
-         hr.head2 {
+        hr.head2 {
             border-top: 4px solid #343A40;
             width: 10%;
             border-radius: 2px;
             margin-bottom: 35px;    
+        }
+
+        img.img-fluid{
+            width: 330px;
+            height: 330px;
+            object-fit: cover;
         }
 
         @media screen and (max-width: 768px) {
@@ -45,7 +51,16 @@
 		<div class="story">
             <h1 class="text-center pt-4">Our Story</h1> 
             <hr class="head1"> 
-            <p class="text-justify team-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p> 
+            <p class="text-justify team-paragraph">
+                Founded in February 2022 by a group of entrepreneurs to compete with national chains convenience store and larger departmental projects which hampers the local/small business and trading ventures present in cleckhuddersfax. Trinit-E which serves also as a mart (online shopping market) is a committed online grocery retailer ground working for the dynamic clients shopping and their pleasant experience as well as helping the local traders have a common working space and market in cleckhuddersfax and any other close locales and communities. <br><br>
+                Our goal is to give our clients the best shopping ground, provide opportunities to communities reaching as far as possible, servitude audiences within range, and value which assembles a solid business and conveys an active incentive for our investors. <br><br>
+                We have built up ourselves as a novel start to finish agenda, working as an answer for online grocery retail dependent on restrictive innovation, appropriate for working our very own business and of our accomplices. <br><br>
+                The world is evolving quickly, determined by various shopping propensities and always searching for the most inventive advocacy for the customer. Grocery is the biggest of all retail portions and is moving and in mass proportion on both the web and the offline market. <br><br>
+                In addition, the quick development of shopping, utilizing the net technology, most prominently cell phone technology opens new chances along with its set challenges. We are all around situated to exploit these basic patterns as well as established patents to assist our clients, accomplices, and investors as a whole.
+
+
+
+            </p> 
         </div>
 
         <div class="title">
@@ -54,98 +69,98 @@
         </div>
 
         
-    
 
-	</div>
 
-	<section id="team">
+    </div>
+
+    <section id="team">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6 mx-auto">
                     <div class="member">
                       <div class="member-img">
-                          <img src="img/dummy.png" class="img-fluid" alt="">
+                          <img src="img/aayush.jpg" class="img-fluid" alt="">
                       </div>
-                        <div class="member-info">
-                            <h4>Emma White</h4>
-                            <span>Web Designer</span>
-                            <div class="social-links">
-                                <a href="contact.php"><i class="fa-solid fa-envelope"></i></a>
-                            </div>
+                      <div class="member-info">
+                        <h4>Aayush Khanal</h4>
+                        <span>Team Worker</span>
+                        <div class="social-links">
+                            <a href="contact.php"><i class="fa-solid fa-envelope"></i></a>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="col-lg-4 col-md-6 mx-auto">
-                    <div class="member">
-                      <div class="member-img">
-                          <img src="img/dummy.png" class="img-fluid" alt="">
-                      </div>
-                        <div class="member-info">
-                            <h4>Emma White</h4>
-                            <span>Web Designer</span>
-                            <div class="social-links">
-                                <a href="#"><i class="fa-solid fa-envelope"></i></a>
-                            </div>
-                        </div>
+            <div class="col-lg-4 col-md-6 mx-auto">
+                <div class="member">
+                  <div class="member-img">
+                      <img src="img/barsha.jpg" class="img-fluid" alt="">
+                  </div>
+                  <div class="member-info">
+                    <h4>Barsha Shakya</h4>
+                    <span>Resource Investigator</span>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-solid fa-envelope"></i></a>
                     </div>
                 </div>
-
-                <div class="col-lg-4 col-md-6 mx-auto">
-                    <div class="member">
-                      <div class="member-img">
-                          <img src="img/dummy.png" class="img-fluid" alt="">
-                      </div>
-                        <div class="member-info">
-                            <h4>Emma White</h4>
-                            <span>Web Designer</span>
-                            <div class="social-links">
-                                <a href="#"><i class="fa-solid fa-envelope"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mx-auto">
-                    <div class="member">
-                      <div class="member-img">
-                          <img src="img/dummy.png" class="img-fluid" alt="">
-                      </div>
-                        <div class="member-info">
-                            <h4>Emma White</h4>
-                            <span>Web Designer</span>
-                            <div class="social-links">
-                                <a href="contact.php"><i class="fa-solid fa-envelope"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mx-auto">
-                    <div class="member">
-                      <div class="member-img">
-                          <img src="img/dummy.png" class="img-fluid" alt="">
-                      </div>
-                        <div class="member-info">
-                            <h4>Emma White</h4>
-                            <span>Web Designer</span>
-                            <div class="social-links">
-                                <a href="contact.php"><i class="fa-solid fa-envelope"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-
-
-
-
             </div>
         </div>
-    </section>
+
+        <div class="col-lg-4 col-md-6 mx-auto">
+            <div class="member">
+              <div class="member-img">
+                  <img src="img/dummy.png" class="img-fluid" alt="">
+              </div>
+              <div class="member-info">
+                <h4>Nitin Utsav Bartaula</h4>
+                <span>Complete Finisher</span>
+                <div class="social-links">
+                    <a href="#"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6 mx-auto">
+        <div class="member">
+          <div class="member-img">
+              <img src="img/dummy.png" class="img-fluid" alt="">
+          </div>
+          <div class="member-info">
+            <h4>Piyusha Gurung</h4>
+            <span>Specialist</span>
+            <div class="social-links">
+                <a href="contact.php"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-4 col-md-6 mx-auto">
+    <div class="member">
+      <div class="member-img">
+          <img src="img/safal.jpg" class="img-fluid" alt="">
+      </div>
+      <div class="member-info">
+        <h4>Safal Karki</h4>
+        <span>Plant</span>
+        <div class="social-links">
+            <a href="contact.php"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+</div>
+</div>
+</section>
 
     <!--section id="team">
         <div class="container">
@@ -232,7 +247,7 @@
 
 
 
-	<?php include "footer.php"; ?>
+    <?php include "footer.php"; ?>
 
 </body>
 </html>

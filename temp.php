@@ -320,18 +320,18 @@ elseif ($_SESSION['role']!='customer')
                       <div class="p-2">
                         <img src="img/food/<?php echo trim($prodRow['PRODUCT_IMAGE']); ?>" style="width: 70px; height: 70px;" alt="" class="img-fluid rounded shadow-sm">
                         <div class="ml-3 d-inline-block align-middle">
-                          <h5 class="mb-0"> <a href="productdescription.php?id=<?php echo $prodRow['PRODUCT_ID'];?>" class="text-dark d-inline-block align-middle" id="cart-item-heading"><?php echo $prodRow['PRODUCT_NAME']; ?></a></h5><span class="text-muted stock-heading font-weight-normal font-italic d-block">Stock: Status</span>
+                          <h5 class="mb-0"> <a href="productdescription.php?id=<?php echo $prodRow['PRODUCT_ID'];?>" class="text-dark d-inline-block align-middle" id="cart-item-heading"><?php echo $prodRow['PRODUCT_NAME']; ?></a></h5><span class="text-muted stock-heading font-weight-normal font-italic d-block">Status: In Stock</span>
                         </div>
                       </div>
                     </th>
-                    <td class="border-0 align-middle col-2"><strong class="price-heading">$<?php echo $prodRow['PRODUCT_PRICE']; ?></strong></td>
+                    <td class="border-0 align-middle col-2"><strong class="price-heading">£<?php echo $prodRow['PRODUCT_PRICE']; ?></strong></td>
                     <form action="" method="POST">
 
                       <input type="hidden" name="cart_Id" value="<?php echo $row['ID']; ?>">
                       <td class="border-0 align-middle col-3"><input class="number_input mr-2 mb-2" type="number" name="update_quantity" value="<?php echo $row['QUANTITY']; ?>" min="1" max="20"><button type="submit" name="update" class="btn btn-update" id="update-btn">Update</button></td>
                     </form>
                     <td class="border-0 align-middle col-2">
-                      <strong class="price-heading">$
+                      <strong class="price-heading">£
                         <?php 
                         $total = $prodRow['PRODUCT_PRICE'] * $row['QUANTITY'];
                         echo $total; 
@@ -373,7 +373,7 @@ elseif ($_SESSION['role']!='customer')
             <div class="card-body">
               <dl class="dlist-align">
                 <dt>Sub Total:</dt>
-                <dd class="text-right ml-3"><strong>$ <?php echo $sub_total; ?></strong></dd>
+                <dd class="text-right ml-3"><strong>£ <?php echo $sub_total; ?></strong></dd>
               </dl>
               <dl class="dlist-align">
                 <dt>Discount:</dt>
@@ -401,7 +401,7 @@ elseif ($_SESSION['role']!='customer')
               <dl class="dlist-align">
                 <dt>Grand Total:</dt>
                 <?php $grandTotal = $sub_total - $discount;?>
-                <dd class="text-right text-dark b ml-3"><strong>$ <?php echo $grandTotal ?></strong></dd>
+                <dd class="text-right text-dark b ml-3"><strong>£ <?php echo $grandTotal ?></strong></dd>
               </dl>
               <?php $_SESSION['grandTotal'] = $grandTotal;?>
               <form action="delete.php" method="POST">

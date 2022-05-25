@@ -1,6 +1,19 @@
 <?php
 	include "crud/connection.php";
 
+if (trim($_SESSION['id'])==null)
+ {
+  header("Location: " . $_SERVER["HTTP_REFERER"]);
+  $_SESSION['failmessage']="You need to be logged in.";
+  die();
+}
+elseif ($_SESSION['role']!='customer') 
+{
+  $_SESSION['failmessage'] = "You need to be logged in as customer";
+  header("Location: " . $_SERVER["HTTP_REFERER"]);
+  die();
+}
+
 	if (isset($_GET['id'])) 
 	{
 		$prod_id = $_GET['id'];
@@ -21,7 +34,7 @@
 		$_SESSION['passmessage']="Product added to wishlist";
 			header("Location:".$_SERVER["HTTP_REFERER"]);
 		}
-		
 	}
+		
 
 ?>

@@ -24,7 +24,7 @@
 
 </head>
 <body>
-	<div class="container-fluid">
+	<div class="container">
 		<div class="col-12 text-center mt-4">
 			<h1>Our Traders</h1>
 			<hr class="head1">
@@ -44,7 +44,7 @@
 				?>
 
 
-				<div class="col-lg-6 col-md-4 col-sm-3 mx-auto py-3">
+				<div class="col-lg-4 col-md-4 col-sm-6 py-3">
 		            <div class="box">
 		                <img src="img/<?php echo $row['SHOP_IMAGE'] ?>">
 		                <div class="box-content">

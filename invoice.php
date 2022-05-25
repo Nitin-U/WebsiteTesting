@@ -84,21 +84,21 @@ if(!$row)
 
                 <tr class="table_hover">
                 <td><?php echo $prod['PRODUCT_NAME']; ?></td>
-                <td>$<?php echo $prod['PRODUCT_PRICE']; ?></td>
+                <td>£<?php echo $prod['PRODUCT_PRICE']; ?></td>
                 <td><?php echo $prod['QUANTITY']; ?></td>
-                <td>$ <?php echo $subtotal; ?> </td>
+                <td>£ <?php echo $subtotal; ?> </td>
 
             </tr>
                 <?php } ?>
                 <tr class="table_hover" style="border-top: 1px solid black ">
                     <td colspan="2"></td>
                     <td><b>Total: </b></td>
-                    <td>$ <?php echo $total; ?></td>
+                    <td>£ <?php echo $total; ?></td>
                 </tr>
                 <tr class="table_hover">
                     <td colspan="2"></td>
                     <td><b>Discount: </b></td>
-                    <td>$ <?php echo $discount; ?></td>
+                    <td>£ <?php echo $discount; ?></td>
                 </tr>
 
         </table>
@@ -107,7 +107,7 @@ if(!$row)
     <div class="footer_container">
         <div>
             <b>INVOICE TOTAL</b>
-            <h2>$ <?php echo $total - $discount; ?> </h2>
+            <h2>£ <?php echo $total - $discount; ?> </h2>
         </div>
         <div>
             <div class="footer_inner">
