@@ -165,7 +165,7 @@
             <input type="Price" class="form-control" name="price" value="<?php echo $row['PRODUCT_PRICE']; ?>">
           </div>
           <div class="form-group col-md-6 col-6">
-            <label for="input">Quantity</label>
+            <label for="input">Quantity <span> *</span></label>
             <input type="number" class="form-control" name="quantity" value="<?php echo $row['QUANTITY']; ?>" min="1" max="1000">
           </div>
         </div>
@@ -173,13 +173,13 @@
         <!--label for="pType">Product Type <span>*</span></label>
         <input type="text" id="pType" name="pType" required><br-->
 
-        <label for="pDescription">Product Description <span>*</span></label><br>
+        <label for="pDescription">Product Description <span> *</span></label><br>
         <textarea id="message" rows="3" name="proddesc" value=""><?php echo $row['PRODUCT_DESC']; ?></textarea>
 
-        <label for="aInformation">Allergy Information</label><br>
+        <label for="aInformation">Allergy Information <span> *</span></label><br>
         <textarea id="message" rows="2" name="allergyinfo" value=""><?php echo $row['ALLERGY_INFO']; ?></textarea>
 
-        <label for="input">Product<span>*</span></label>
+        <label for="input">Product<span> *</span></label>
         <div class="input-group mb-3">
           <div class="custom-file">
             <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
@@ -187,7 +187,7 @@
           </div>
         </div>
 
-        <label for="input">Rating<span>*</span></label>
+        <label for="input">Shop Type<span> *</span></label>
         <select id="form_need" class="form-control mb-5" name="shopType"  data-error="Please specify your need." >
                 <option value="" disabled>--Select Your Category--</option>
                 <?php

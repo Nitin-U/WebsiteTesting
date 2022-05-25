@@ -148,7 +148,8 @@
         <input type="text" id="tshop" name="shoptype" value="<?php echo $row['SHOP_TYPE'] ?>" disabled><br>
         <div class="mb-4"></div>
 
-        <div class="custom-file mt-2 mb-3">
+        <label for="pType">Choose Image <span>*</span></label>
+        <div class="custom-file mb-3">
             <input type="file" class="custom-file-input" name="image" id="inputGroupFile01">
             <label class="custom-file-label" for="inputGroupFile01">Browse</label>
           </div>

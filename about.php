@@ -74,9 +74,9 @@ include "crud/connection.php";
     </div>
 
     <section id="team">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-4 col-md-6 mx-auto">
+                <div class="col-lg-2 col-md-4 mx-auto mb-3">
                     <div class="member">
                       <div class="member-img">
                           <img src="img/aayush.jpg" class="img-fluid" alt="">
@@ -91,7 +91,7 @@ include "crud/connection.php";
                 </div>
             </div>
 
-            <div class="col-lg-4 col-md-6 mx-auto">
+            <div class="col-lg-2 col-md-4 mx-auto mb-3">
                 <div class="member">
                   <div class="member-img">
                       <img src="img/barsha.jpg" class="img-fluid" alt="">
@@ -106,10 +106,10 @@ include "crud/connection.php";
             </div>
         </div>
 
-        <div class="col-lg-4 col-md-6 mx-auto">
+        <div class="col-lg-2 col-md-4 mx-auto mb-3">
             <div class="member">
               <div class="member-img">
-                  <img src="img/dummy.png" class="img-fluid" alt="">
+                  <img src="img/Nitin.jpg" class="img-fluid" alt="">
               </div>
               <div class="member-info">
                 <h4>Nitin Utsav Bartaula</h4>
@@ -121,10 +121,10 @@ include "crud/connection.php";
         </div>
     </div>
 
-    <div class="col-lg-4 col-md-6 mx-auto">
+    <div class="col-lg-2 col-md-4 mx-auto mb-3">
         <div class="member">
           <div class="member-img">
-              <img src="img/dummy.png" class="img-fluid" alt="">
+              <img src="img/Piyusha.jpeg" class="img-fluid" alt="">
           </div>
           <div class="member-info">
             <h4>Piyusha Gurung</h4>
@@ -136,7 +136,7 @@ include "crud/connection.php";
     </div>
 </div>
 
-<div class="col-lg-4 col-md-6 mx-auto">
+<div class="col-lg-2 col-md-4 mx-auto mb-3">
     <div class="member">
       <div class="member-img">
           <img src="img/safal.jpg" class="img-fluid" alt="">

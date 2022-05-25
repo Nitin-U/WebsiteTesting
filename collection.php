@@ -17,9 +17,9 @@ $grandTotal = $_SESSION['grandTotal'];
     $date_day = date('l');
     $date_time = date('G');
     $date_dayCount = date('w');
-    echo $date_day;
-    echo $date_time;
-    echo $date_dayCount;
+    // echo $date_day;
+    // echo $date_time;
+    // echo $date_dayCount;
 
     // $date_day = date('l');    
     // $date_dayCount = 6;    

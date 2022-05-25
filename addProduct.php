@@ -196,7 +196,7 @@
         </div>
         <div class="mb-3"><?php if (isset($error_image)) echo '<div class="error">'.$error_image.'</div>';?> </div>
 
-        <label for="staticAge">Trader Type*</label>
+        <label for="staticAge">Shop Type <span> *</span></label>
               <select id="form_need" class="form-control mb-3" name="shopType"  data-error="Please specify your need." >
                 <option value="" selected disabled>--Select Your Category--</option>
                 <?php

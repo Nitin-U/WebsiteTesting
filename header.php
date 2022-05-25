@@ -162,7 +162,7 @@ $_SESSION['cart_count']=$row['QUANTITYTOTAL'];
 				    			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 				    				<?php if ($_SESSION['role']=='customer') { ?>
 				    					<a class="dropdown-item nav-link" href="customer_profile_setting.php">Profile</a>
-				    					<a class="dropdown-item nav-link" href="wishlist.php">Wishlist</a>
+				    					<!-- <a class="dropdown-item nav-link" href="wishlist.php">Wishlist</a> -->
 				    				<?php } ?> 
 
 				    				<?php if ($_SESSION['role']=='trader') { ?>
@@ -173,7 +173,7 @@ $_SESSION['cart_count']=$row['QUANTITYTOTAL'];
 
 				    				<?php if($_SESSION['role']=='admin'){ ?>
 				    					<a class="dropdown-item nav-link" href="manageTrader.php">Manage trader</a>
-				    					<a class="dropdown-item nav-link" href="manageTraderProduct.php">Manage Product</a>
+				    					<!-- <a class="dropdown-item nav-link" href="manageTraderProduct.php">Manage Product</a> -->
 				    				<?php } ?>
 				    				</div> 
 
